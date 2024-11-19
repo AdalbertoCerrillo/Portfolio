@@ -1,35 +1,44 @@
 body {
-    background-color: #53535349; 
+    background-color: #53535349;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 .info-card {
-    background-color: #ffffff;          
-    border-radius: 10px;                
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    padding: 20px;                      
-    max-width: 300px;                  
-    margin: 20px 15px;                 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 20px 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
 }
 
-.info-card img{
+.info-card img {
     display: block;
-    margin: 0 auto
+    margin: 0 auto;
+    width: 100%;
+    height: auto;
 }
 
-.info-card h4{
+.info-card h4 {
     text-align: center;
 }
 
-.contact-card{
-    background-color: #ffffff;          
-    border-radius: 10px;                
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    padding: 20px;                      
-    max-width: 300px;                  
-    margin: 20px 15px;                 
-    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+.contact-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 20px 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
 }
 
@@ -40,88 +49,76 @@ body {
 }
 
 .contact-card:hover {
-    transform: translateY(-10px);      
-    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-10px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
 }
 
 .contact-card h3 {
     font-size: 1.5em;
-    color: #254d81;                       
+    color: #254d81;
     margin-bottom: 10px;
 }
 
 .contact-card p {
     font-size: 1.7em;
-    color: #666;                        
-    line-height: 1.6; 
-    text-align: justify;                  
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
 }
 
-
 .info-card:hover {
-    transform: translateY(-10px);      
-    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-10px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
 }
 
 .info-card h3 {
     font-size: 1.7em;
-    color: #254d81;                       
+    color: #254d81;
     margin-bottom: 10px;
 }
 
 .info-card p {
     font-size: 1em;
-    color: #666;                        
-    line-height: 1.6; 
-    text-align: justify;                  
+    color: #666;
+    line-height: 1.6;
+    text-align: justify;
 }
 
 .main-card {
-    display: flex;              
-    flex-wrap: wrap;                 
-    gap: 1px;                       
-    justify-content: center;          
-    padding: 20px;                    
-    max-width: 100%;                  
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.main-card .info-card {
-    flex: 1 1 calc(33.33% - 20px);   
-    max-width: calc(33.33% - 20px); 
-}
-
-/* Responsive: En pantallas medianas, reducir a dos tarjetas por fila */
-@media (max-width: 768px) {
+@media (min-width: 1024px) {  /* Ajuste para pantallas más grandes (PCs) */
     .main-card .info-card {
-        flex: 1 1 calc(50% - 20px);  
-        max-width: calc(50% - 20px);
-    }
-}
-
-/* Responsive: En pantallas pequeñas, mostrar una tarjeta por fila */
-@media (max-width: 480px) {
-    .main-card .info-card {
-        flex: 1 1 100%;               
-        max-width: 100%;
+        flex: 1 1 calc(33.33% - 20px);
+        max-width: calc(33.33% - 20px);
+        box-sizing: border-box;
     }
 }
 
 .about-image {
-    width: 400px;                 
-    height: 400px;                
-    object-fit: cover;    
+    width: 100%;
+    height: auto;
+    object-fit: cover;
     display: block;
-    margin: 0 auto;      
-    border-radius: 10px;          
-    margin-bottom: 15px;         
+    margin: 0 auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .logo-image {
-    width: 50px;                 
-    height: 50px;                
-    object-fit: cover;             
-    border-radius: 10px;          
-    margin-bottom: 15px;         
+    width: 100%;
+    max-width: 50px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .icon-text {
@@ -130,37 +127,36 @@ body {
     align-items: center;
 }
 
-.carousel-image{
+.carousel-image {
     cursor: zoom-in;
 }
 
 .carousel-container {
     position: relative;
     overflow: hidden;
-    width: 400px;
-    height: 200px;
+    width: 100%;
+    height: auto;
     margin: auto;
 }
 
 .carousel-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
 .project-image {
-  width: 400px;
-  height: 200px;
-  object-fit: cover;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 .education-image {
-    width: 250px;
-    height: 250px;
-    object-fit: contain; 
+    width: 100%;
+    height: auto;
+    object-fit: contain;
     display: block;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
-  
 
 .carousel-button {
     position: absolute;
@@ -179,17 +175,17 @@ body {
 }
 
 .carousel-button:hover {
-  background-color: #333;
-  color: #fff;
-  transform: translateY(-50%) scale(1.1);
+    background-color: #333;
+    color: #fff;
+    transform: translateY(-50%) scale(1.1);
 }
 
 .carousel-button.left {
-  left: 10px;
+    left: 10px;
 }
 
 .carousel-button.right {
-  right: 10px;
+    right: 10px;
 }
 
 .fullscreen-overlay {
@@ -204,83 +200,60 @@ body {
     align-items: center;
     z-index: 1000;
 }
-  
+
 .fullscreen-image {
     max-width: 90%;
     max-height: 90%;
 }
-  
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #000000; 
+    background-color: #000000;
     padding: 15px 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.navbar:hover{
+.navbar:hover {
     cursor: pointer;
 }
 
 .logo {
-    color: #ffffff; 
+    color: #ffffff;
     font-size: 24px;
     font-weight: bold;
 }
 
 .nav-links {
-    list-style: none; 
+    list-style: none;
     display: flex;
-    gap: 20px; 
+    gap: 20px;
 }
 
 .nav-links li {
     display: inline;
-    color: #ffffff; 
-    text-decoration: none; 
+    color: #ffffff;
+    text-decoration: none;
     font-size: 18px;
-    transition: color 0.3s; 
+    transition: color 0.3s;
 }
 
 .nav-links li:hover {
-    color: #6d93a0; 
+    color: #6d93a0;
 }
 
-/* Estilos para el menú hamburguesa */
 .hamburger {
-    display: none; 
-    flex-direction: column; 
-    cursor: pointer; 
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
 }
 
 .line {
-    height: 4px; 
-    width: 30px; 
-    background-color: #ffffff; 
-    margin: 4px 0; 
-}
-
-/* Responsividad */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none; 
-        position: absolute;
-        top: 60px; 
-        left: 0; 
-        width: 100%;
-        background-color: #333;
-        flex-direction: column;
-        padding: 10px 0; 
-    }
-
-    .nav-links.active {
-        display: flex; 
-    }
-
-    .hamburger {
-        display: flex; 
-    }
+    height: 4px;
+    width: 30px;
+    background-color: #ffffff;
+    margin: 4px 0;
 }
 
 .contact-item {
@@ -298,7 +271,7 @@ body {
 }
 
 .contact-item a:hover {
-    color: #0073b1; 
+    color: #0073b1;
 }
 
 .skills-card {
@@ -306,7 +279,8 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    max-width: 500px; 
+    width: 100%;
+    max-width: 500px;
     margin: 20px auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
@@ -321,12 +295,19 @@ body {
     font-size: 1.5em;
     color: #254d81;
     margin-bottom: 15px;
-    text-align: center; 
+    text-align: center;
 }
 
 .skills-grid {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between; 
-    gap: 50px; 
+    justify-content: center;
+    gap: 20px;
 }
+
+.icon-text {
+    flex: 1 1 calc(33.33% - 20px);
+    max-width: calc(33.33% - 20px);
+    box-sizing: border-box;
+}
+
