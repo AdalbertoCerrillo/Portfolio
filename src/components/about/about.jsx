@@ -1,5 +1,9 @@
 import '../../App.css'
-import image from '../../images/AboutMe.jpeg'
+import image from '../../images/AboutMe.jpg'
+import linkedinLogo from '../../images/linkedin.png'
+import mailLogo from '../../images/Mail.jpg'
+import GitHubLogo from '../../images/GitHub.png'
+import YoutubeLogo from '../../images/Youtube.png'
 import pythonLogo from '../../images/python.png'
 import JavaLogo from '../../images/java.png'
 import JavascriptLogo from '../../images/javascript.png'
@@ -12,7 +16,16 @@ import bootstrapLogo from '../../images/boostrap.png'
 import dockerLogo from '../../images/docker.jpg'
 import gitLogo from '../../images/git.jpg'
 import LinuxLogo from '../../images/linux.png'
+import oracle from '../../images/oracle.png'
+import mysql from '../../images/mysql.png'
+import miro from '../../images/miro.png'
+import springboot from '../../images/springboot.png'
+import sqlite from '../../images/sqlite.jpg'
+import html from '../../images/html.png'
+import postman from '../../images/postman.png'
 import UAZLogo from '../../images/UAZ.jpg'
+import jwt from '../../images/jwt.png'
+import selenium from '../../images/selenium.png'
 import someceImage from '../../images/Achievements/constancia1.png';
 import ICPImage from '../../images/Achievements/constancia2.png';
 import { useState } from 'react'
@@ -43,10 +56,21 @@ const About = () => {
         I obtained my academic training as a Software Engineer at the Academic Unit of Electrical Engineering at "Universidad Autónoma de Zacatecas". It was there that I nurtured my curiosity and creativity in software system development, in addition to acquiring solid knowledge for developing high-quality solutions, always supported by best practices.
     `;
 
+    const email = 'adalc3488@gmail.com';
+    const linkedinLink = 'https://www.linkedin.com/in/adalberto-cerrillo-vázquez-a3870628a';
+    const GitHubLink = 'https://github.com/AdalbertoCV';
+    const YoutubeLink = 'https://www.youtube.com/@acerrillosoftware';
+
     return (
         <div className='main-card'>
             <div className="info-card">
+                <div className='header-container'>
                 <h3>About Me:</h3>
+                <a href={`mailto:${email}`} className="email-link"><img src={mailLogo} alt="Mail" className="logo-image" /></a>
+                <a href={linkedinLink} target="_blank" rel="noopener noreferrer"><img src={linkedinLogo} alt="LinkedIn" className="logo-image" /></a>
+                <a href={GitHubLink} target="_blank" rel="noopener noreferrer"><img src={GitHubLogo} alt="GitHub" className="logo-image" /></a>
+                <a href={YoutubeLink} target="_blank" rel="noopener noreferrer"><img src={YoutubeLogo} alt="GitHub" className="logo-image" /></a>
+                </div>
                 <h2>{nombre}</h2>
                 <p>{biografia}</p>
                 <img src={image} alt='About Me' className='about-image' />
@@ -62,14 +86,23 @@ const About = () => {
                     <p className='icon-text'> Java<img src={JavaLogo} alt="Java" className="logo-image" /></p>
                     <p className='icon-text'> JavaScript<img src={JavascriptLogo} alt="JavaScript" className="logo-image" /></p>
                     <p className='icon-text'> Django<img src={DjangoLogo} alt="Django" className="logo-image" /></p>
+                    <p className='icon-text'> SpringBoot<img src={springboot} alt="spring" className="logo-image" /></p>
                     <p className='icon-text'> Rest-Framework<img src={restFrameworkLogo} alt="Django Rest Framework" className="logo-image" /></p>
+                    <p className='icon-text'> Postman<img src={postman} alt="Postman" className="logo-image" /></p>
                     <p className='icon-text'> React<img src={ReactLogo} alt="React" className="logo-image" /></p>
                     <p className='icon-text'> CSS<img src={cssLogo} alt="CSS" className="logo-image" /></p>
+                    <p className='icon-text'> HTML<img src={html} alt="HTML" className="logo-image" /></p>
                     <p className='icon-text'> Tailwind CSS<img src={tailwindLogo} alt="Tailwind CSS" className="logo-image" /></p>
                     <p className='icon-text'> Bootstrap<img src={bootstrapLogo} alt="Bootstrap" className="logo-image" /></p>
                     <p className='icon-text'> Docker<img src={dockerLogo} alt="Docker" className="logo-image" /></p>
                     <p className='icon-text'> Git<img src={gitLogo} alt="Git" className="logo-image" /></p>
                     <p className='icon-text'> Linux OS<img src={LinuxLogo} alt="Linux" className="logo-image" /></p>
+                    <p className='icon-text'> MySQL<img src={mysql} alt="mysql" className="logo-image" /></p>
+                    <p className='icon-text'> SQLite<img src={sqlite} alt="sqlite" className="logo-image" /></p>
+                    <p className='icon-text'> Oracle DB<img src={oracle} alt="oracle" className="logo-image" /></p>
+                    <p className='icon-text'> Miro<img src={miro} alt="miro" className="logo-image" /></p>
+                    <p className='icon-text'> Selenium<img src={selenium} alt="Selenium" className="logo-image" /></p>
+                    <p className='icon-text'> JWT<img src={jwt} alt="jwt" className="logo-image" /></p>
                 </div>
             </div>
     
