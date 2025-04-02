@@ -1,14 +1,16 @@
 body {
-    background-color: #53535349;
+    background-color: #cfd6eb4d;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 }
 
 .info-card {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between; 
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     width: 100%;
     max-width: 100%;
@@ -16,7 +18,9 @@ body {
     margin: 20px 15px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
+    box-shadow: 5px 5px 5px 5px rgb(184, 181, 181);
 }
+
 
 .info-card img {
     display: block;
@@ -85,13 +89,13 @@ body {
 }
 
 .main-card {
+    margin-top: 100px;
     display: flex;
     flex-wrap: wrap;
-    gap: 1px;
+    gap: 40px;
     justify-content: center;
     padding: 20px;
     width: 100%;
-    box-sizing: border-box;
 }
 
 @media (min-width: 1024px) {  
@@ -103,13 +107,12 @@ body {
 }
 
 .about-image {
-    width: 500px;
-    height: 500px;
-    object-fit: cover;
+    max-width: 350px;
+    max-height: 400px;
     display: block;
-    margin: 0 auto;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    margin: auto;
+    border-radius: 100%;
+    box-shadow: 5px 5px 5px 5px rgb(114, 116, 140);
 }
 
 .logo-image {
@@ -151,8 +154,8 @@ body {
 }
 
 .education-image {
-    width: 100%;
-    height: auto;
+    max-width: 300px;
+    max-height: 300px;
     object-fit: contain;
     display: block;
     margin: 0 auto;
@@ -208,24 +211,34 @@ body {
 
 .navbar {
     display: flex;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
-    background-color: #000000;
-    padding: 15px 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #26264f;
+    padding: 20px;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.navbar li.active{
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 /* Ajustes para pantallas pequeñas */
 @media (max-width: 768px) {
     .navbar {
+        width: 100%;
         flex-direction: column; 
         padding: 15px;
     }
 }
 
-.navbar:hover {
-    cursor: pointer;
-}
 
 .logo {
     color: #ffffff;
@@ -245,10 +258,12 @@ body {
     text-decoration: none;
     font-size: 18px;
     transition: color 0.3s;
+    padding:10px;
 }
 
 .nav-links li:hover {
     color: #6d93a0;
+    cursor: pointer;
 }
 
 .hamburger {

@@ -13,6 +13,9 @@ import cosiap1 from '../../images/Projects/COSIAP1.png';
 import cosiap2 from '../../images/Projects/COSIAP2.png';
 import cosiap3 from '../../images/Projects/COSIAP3.png';
 import cosiap4 from '../../images/Projects/COSIAP4.png';
+import pbienestar1 from '../../images/Projects/PuntoBienestar1.jpeg';
+import pbienestar2 from '../../images/Projects/PuntoBienestar2.jpeg';
+import pbienestar3 from '../../images/Projects/PuntoBienestar3.jpeg';
 
 const MyProjects = () => {
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -58,6 +61,12 @@ const MyProjects = () => {
   const [CosiapIndex, setCosiapcIndex] = useState(0);
   const CosiapImages = [cosiap1, cosiap2, cosiap3, cosiap4];
 
+  const pbienestar_description = ` This project consists of an appointment scheduling system for a professional psychological care clinic. The goal is to provide the administrator with the ability to manage the profile status of specialists and review appointment information to make informed decisions, ensuring the best possible care for patients.
+  `;
+
+  const [pbienestarIndex, setPbienestarIndex] = useState(0);
+  const pbienestarImages = [pbienestar1, pbienestar2, pbienestar3];
+
   const nextSlide = (images, setIndex) => {
     setIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
@@ -78,6 +87,35 @@ const MyProjects = () => {
 
   return (
     <div className="main-card">
+
+    {/* Card for Punto Bienestar */}
+    <div className="info-card">
+        <div className="header-container">
+          <h3>Appointment Scheduling System</h3>
+        </div>
+        <p>{pbienestar_description}</p>
+        <div className="carousel-container">
+          <button
+            className="carousel-button left"
+            onClick={() => previousSlide(pbienestarImages, setPbienestarIndex)}
+          >
+            ◀
+          </button>
+          <img
+            className="carousel-image"
+            onClick={() => handleImageClick(pbienestarImages[pbienestarIndex])}
+            src={pbienestarImages[pbienestarIndex]}
+            alt={`Punto Bienestar ${pbienestarIndex + 1}`}
+            style={{ maxWidth: '100%', height: 'auto' }} 
+          />
+          <button
+            className="carousel-button right"
+            onClick={() => nextSlide(pbienestarImages, setPbienestarIndex)}
+          >
+            ▶
+          </button>
+        </div>
+      </div>
     {/* Card for Cosiap */}
     <div className="info-card">
         <div className="header-container">

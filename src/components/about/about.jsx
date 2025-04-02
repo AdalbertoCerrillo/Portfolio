@@ -1,5 +1,5 @@
 import '../../App.css'
-import image from '../../images/AboutMe.jpg'
+import image from '../../images/AboutMe.jpeg'
 import linkedinLogo from '../../images/linkedin.png'
 import mailLogo from '../../images/Mail.jpg'
 import GitHubLogo from '../../images/GitHub.png'
@@ -11,8 +11,6 @@ import DjangoLogo from '../../images/Django.png'
 import restFrameworkLogo from '../../images/rest-framework.png'
 import ReactLogo from '../../images/react.png'
 import cssLogo from '../../images/css.jpg'
-import tailwindLogo from '../../images/tailwind.png'
-import bootstrapLogo from '../../images/boostrap.png'
 import dockerLogo from '../../images/docker.jpg'
 import gitLogo from '../../images/git.jpg'
 import LinuxLogo from '../../images/linux.png'
@@ -25,7 +23,6 @@ import html from '../../images/html.png'
 import postman from '../../images/postman.png'
 import UAZLogo from '../../images/UAZ.jpg'
 import jwt from '../../images/jwt.png'
-import selenium from '../../images/selenium.png'
 import someceImage from '../../images/Achievements/constancia1.png';
 import ICPImage from '../../images/Achievements/constancia2.png';
 import { useState } from 'react'
@@ -92,8 +89,6 @@ const About = () => {
                     <p className='icon-text'> React<img src={ReactLogo} alt="React" className="logo-image" /></p>
                     <p className='icon-text'> CSS<img src={cssLogo} alt="CSS" className="logo-image" /></p>
                     <p className='icon-text'> HTML<img src={html} alt="HTML" className="logo-image" /></p>
-                    <p className='icon-text'> Tailwind CSS<img src={tailwindLogo} alt="Tailwind CSS" className="logo-image" /></p>
-                    <p className='icon-text'> Bootstrap<img src={bootstrapLogo} alt="Bootstrap" className="logo-image" /></p>
                     <p className='icon-text'> Docker<img src={dockerLogo} alt="Docker" className="logo-image" /></p>
                     <p className='icon-text'> Git<img src={gitLogo} alt="Git" className="logo-image" /></p>
                     <p className='icon-text'> Linux OS<img src={LinuxLogo} alt="Linux" className="logo-image" /></p>
@@ -101,7 +96,6 @@ const About = () => {
                     <p className='icon-text'> SQLite<img src={sqlite} alt="sqlite" className="logo-image" /></p>
                     <p className='icon-text'> Oracle DB<img src={oracle} alt="oracle" className="logo-image" /></p>
                     <p className='icon-text'> Miro<img src={miro} alt="miro" className="logo-image" /></p>
-                    <p className='icon-text'> Selenium<img src={selenium} alt="Selenium" className="logo-image" /></p>
                     <p className='icon-text'> JWT<img src={jwt} alt="jwt" className="logo-image" /></p>
                 </div>
             </div>
