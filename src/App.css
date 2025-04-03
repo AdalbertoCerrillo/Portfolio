@@ -146,6 +146,12 @@ body {
     margin-bottom: 15px;
 }
 
+.navbar-logo{
+    max-width: 300px;
+    max-height: 50px;
+    color: white;
+}
+
 .icon-text {
     display: flex;
     flex-direction: column;

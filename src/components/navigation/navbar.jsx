@@ -1,4 +1,5 @@
 import '../../App.css';
+import img from '../../images/logonavbar.png';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
@@ -9,7 +10,7 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
-            <div className="logo">My Portfolio</div>
+            <img src={img} className="navbar-logo"></img>
             <ul className="nav-links">
                 <li className={location.pathname === "/" ? "active" : ""} onClick={() => navigate('/')}>About Me</li> 
                 <li className={location.pathname === "/projects" ? "active" : ""} onClick={() => navigate('/projects')}>Projects</li> 
