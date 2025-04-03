@@ -19,7 +19,7 @@ const Experience = () =>{
                 <a href={labsolLink} target="_blank" rel="noopener noreferrer"><img className='education-image' src={labsolLogo} alt='Labsol Logo'></img></a>
             </div>
             <div className="info-card">
-                <h3>Freelance Programmer (Jan 2025 - NOW)</h3>
+                <h3>Freelance Programmer (Jan 2025 - now)</h3>
                 <p>{infoFreelance}</p>
                 <img className='education-image' src={freelance} alt='Freelance img'></img>
             </div>

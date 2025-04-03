@@ -61,7 +61,7 @@ const MyProjects = () => {
   const [CosiapIndex, setCosiapcIndex] = useState(0);
   const CosiapImages = [cosiap1, cosiap2, cosiap3, cosiap4];
 
-  const pbienestar_description = ` This project consists of an appointment scheduling system for a professional psychological care clinic. The goal is to provide the administrator with the ability to manage the profile status of specialists and review appointment information to make informed decisions, ensuring the best possible care for patients.
+  const pbienestar_description = `This project consists of an appointment scheduling system for a professional psychological care clinic. It enables administrators to manage specialists' profile status and review appointment details for informed decision-making, ensuring optimal patient care. Additionally, the system automates email notifications for patients, specialists, and administrators, providing real-time updates on appointment changes. It also integrates with the Google Calendar API, allowing users to save appointments to their accounts and receive automated reminders. The system features secure authentication using JSON Web Token (JWT), ensuring protected access to user accounts and sensitive information.
   `;
 
   const [pbienestarIndex, setPbienestarIndex] = useState(0);

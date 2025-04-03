@@ -1,5 +1,5 @@
 import '../../App.css'
-import image from '../../images/AboutMe.jpeg'
+import image from '../../images/AboutMe.jpg'
 import linkedinLogo from '../../images/linkedin.png'
 import mailLogo from '../../images/Mail.jpg'
 import GitHubLogo from '../../images/GitHub.png'
@@ -48,10 +48,12 @@ const About = () => {
 
     const nombre = 'Adalberto Cerrillo Vázquez';
 
-    const universidad = 'Universidad Autónoma de Zacatecas';
+    const universidad = 'Autonomous University of Zacatecas';
     const infoUniversidad = `
-        I obtained my academic training as a Software Engineer at the Academic Unit of Electrical Engineering at "Universidad Autónoma de Zacatecas". It was there that I nurtured my curiosity and creativity in software system development, in addition to acquiring solid knowledge for developing high-quality solutions, always supported by best practices.
+        I obtained my academic training as a Software Engineer at the Academic Unit of Electrical Engineering at the Autonomous University of Zacatecas. It was there that I nurtured my curiosity and creativity in software system development, in addition to acquiring solid knowledge for developing high-quality solutions, always supported by best practices.
     `;
+
+    const uaz_description = `The Autonomous University of Zacatecas Francisco García Salinas (UAZ) is the leading higher education institution in Zacatecas, Mexico. It is organized into academic areas and units focused on teaching, research, extension, and academic management. UAZ serves students from Zacatecas and other states in fields such as biology, humanities, engineering, languages, arts, agriculture, and exact sciences. The university actively promotes science, technology, and innovation.`;
 
     const email = 'adalc3488@gmail.com';
     const linkedinLink = 'https://www.linkedin.com/in/adalberto-cerrillo-vázquez-a3870628a';
@@ -68,7 +70,7 @@ const About = () => {
                 <a href={GitHubLink} target="_blank" rel="noopener noreferrer"><img src={GitHubLogo} alt="GitHub" className="logo-image" /></a>
                 <a href={YoutubeLink} target="_blank" rel="noopener noreferrer"><img src={YoutubeLogo} alt="GitHub" className="logo-image" /></a>
                 </div>
-                <h2>{nombre}</h2>
+                <h2>{nombre} - Backend Developer</h2>
                 <p>{biografia}</p>
                 <img src={image} alt='About Me' className='about-image' />
             </div>
@@ -102,8 +104,11 @@ const About = () => {
     
             <div className="info-card">
                 <h3>Education:</h3>
-                <h2>{universidad}</h2>
+                <div className='info-card-text'>
+                <h2>{universidad} (2020 - 2024)</h2>
                 <p>{infoUniversidad}</p>
+                <p>{uaz_description}</p>
+                </div>
                 <img className="education-image" src={UAZLogo} alt='UAZ'></img>
             </div>
     
