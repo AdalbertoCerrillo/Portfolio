@@ -26,6 +26,7 @@ import jwt from '../../images/jwt.png'
 import someceImage from '../../images/Achievements/constancia1.png';
 import ICPImage from '../../images/Achievements/constancia2.png';
 import { useState } from 'react'
+import { createPortal } from 'react-dom'
 
 
 const About = () => {
@@ -75,6 +76,29 @@ const About = () => {
                 </div>
                 <h2>{nombre} - Backend Developer</h2>
                 <p>{biografia}</p>
+                <div className="cv-actions">
+                    <a
+                        className="cv-button"
+                        href={`${process.env.PUBLIC_URL}/CV.pdf`}
+                        download="Adalberto-Cerrillo-CV.pdf"
+                    >
+                        <svg className="cv-button-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                            <path d="M12 3v12" />
+                            <path d="M7 10l5 5 5-5" />
+                            <path d="M4 20h16" />
+                        </svg>
+                        Download CV
+                        <span className="cv-button-meta">PDF</span>
+                    </a>
+                    <a
+                        className="cv-link"
+                        href={`${process.env.PUBLIC_URL}/CV.pdf`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Open in browser
+                    </a>
+                </div>
                 <div className="about-image-container">
                     <img src={image} alt='About Me' className='about-image' />
                 </div>
@@ -138,10 +162,13 @@ const About = () => {
                   />
                 </div>
             </div>
-            {isFullScreen && (
+            {/* Portalled for the same reason as the projects lightbox: `.main-card`
+                is a stacking context, so a nested overlay renders under the navbar. */}
+            {isFullScreen && createPortal(
                 <div className="fullscreen-overlay" onClick={closeFullScreen}>
                     <img src={activeImage} alt="Enlarged project" className="fullscreen-image" />
-                </div>
+                </div>,
+                document.body
             )}
         </div>
     );    

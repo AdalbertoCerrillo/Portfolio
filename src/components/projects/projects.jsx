@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import githubImage from '../../images/GitHub.png';
 import BSImage1 from '../../images/Projects/bazar_sol_1.png';
 import BSImage2 from '../../images/Projects/bazar_sol_2.png';
@@ -17,30 +18,146 @@ import pbienestar1 from '../../images/Projects/PuntoBienestar1.jpeg';
 import pbienestar2 from '../../images/Projects/PuntoBienestar2.jpeg';
 import pbienestar3 from '../../images/Projects/PuntoBienestar3.jpeg';
 
-const MyProjects = () => {
-  const [isFullScreen, setIsFullScreen] = useState(false);
-  const [activeImage, setActiveImage] = useState(null);
+const SWIPE_THRESHOLD = 50;
 
+const ChevronIcon = ({ direction }) => (
+  <svg className="chevron-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d={direction === 'left' ? 'M15 5 8 12l7 7' : 'M9 5l7 7-7 7'} />
+  </svg>
+);
+
+const CloseIcon = () => (
+  <svg className="close-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M6 6l12 12" />
+    <path d="M18 6 6 18" />
+  </svg>
+);
+
+const ProjectCard = ({ title, link, description, images, label, onExpand }) => {
+  const [index, setIndex] = useState(0);
+
+  const step = (delta) =>
+    setIndex((previous) => (previous + delta + images.length) % images.length);
+
+  return (
+    <div className="info-card">
+      <div className="header-container">
+        <h3>{title}</h3>
+        {link && (
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${title} source repository`}
+          >
+            <img className="logo-image" src={githubImage} alt="GitHub" />
+          </a>
+        )}
+      </div>
+      <p>{description}</p>
+      <div className="carousel-container">
+        {images.length > 1 && (
+          <button
+            className="carousel-button left"
+            onClick={() => step(-1)}
+            aria-label={`Previous ${label} screenshot`}
+          >
+            <ChevronIcon direction="left" />
+          </button>
+        )}
+        <img
+          className="carousel-image"
+          onClick={() => onExpand({ images, index, setIndex, label })}
+          src={images[index]}
+          alt={`${label} ${index + 1}`}
+          style={{ maxWidth: '100%', height: 'auto' }}
+        />
+        {images.length > 1 && (
+          <button
+            className="carousel-button right"
+            onClick={() => step(1)}
+            aria-label={`Next ${label} screenshot`}
+          >
+            <ChevronIcon direction="right" />
+          </button>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const MyProjects = () => {
+  // Holds the whole slide list, not a single image, so the expanded view can be
+  // navigated without closing it. `setIndex` belongs to the card that opened
+  // the view, so its inline carousel stays on whatever slide you leave on.
+  const [lightbox, setLightbox] = useState(null);
+  const touchStartX = useRef(null);
+
+  const closeLightbox = useCallback(() => setLightbox(null), []);
+
+  const stepLightbox = useCallback((delta) => {
+    setLightbox((current) => {
+      if (!current) return current;
+      const nextIndex =
+        (current.index + delta + current.images.length) % current.images.length;
+      return { ...current, index: nextIndex };
+    });
+  }, []);
+
+  // Mirror the expanded slide back onto the card that opened it.
+  useEffect(() => {
+    if (!lightbox) return;
+    lightbox.setIndex(lightbox.index);
+  }, [lightbox]);
+
+  useEffect(() => {
+    if (!lightbox) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') closeLightbox();
+      if (event.key === 'ArrowRight') stepLightbox(1);
+      if (event.key === 'ArrowLeft') stepLightbox(-1);
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [lightbox, closeLightbox, stepLightbox]);
+
+  const handleTouchStart = (event) => {
+    touchStartX.current = event.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (event) => {
+    if (touchStartX.current === null) return;
+    const travelled = event.changedTouches[0].clientX - touchStartX.current;
+    touchStartX.current = null;
+    if (Math.abs(travelled) < SWIPE_THRESHOLD) return;
+    stepLightbox(travelled < 0 ? 1 : -1);
+  };
 
   const bazar_sol_description = `
     School project inspired by a modern e-commerce site. In this site, the main idea is to give the administrator the
     possibility of having control of the stock for a clothing store. The admin can upload new products to stock and adjust the prices and descriptions of each product.
-    The customer user can see all the products in the catalog, and add their favorite products to a private favorites list. Additionally, they can add products to a shopping cart and reserve them for later.  
+    The customer user can see all the products in the catalog, and add their favorite products to a private favorites list. Additionally, they can add products to a shopping cart and reserve them for later.
   `;
 
   const bazar_Sol_link = 'https://github.com/AdalbertoCV/Bazar_Sol';
-  
-  const [bazarSolIndex, setBazarSolIndex] = useState(0);
+
   const bazarSolImages = [BSImage1, BSImage2, BSImage3];
 
   const rentaZac_description = `
     School project for the student community of the city of Zacatecas. The main idea of the website is to give an alternative to landlords and students to see and
-    post houses for rent on a trusted site instead of creating ads on social media. This website is offered as a good solution to the problem of thousands of students looking for a place to rent to continue their studies. 
+    post houses for rent on a trusted site instead of creating ads on social media. This website is offered as a good solution to the problem of thousands of students looking for a place to rent to continue their studies.
   `;
 
   const rentazac_link = 'https://github.com/Viky-Gomez/RentaZac';
 
-  const [RentaZacIndex, setRentaZacIndex] = useState(0);
   const RentaZacImages = [RZImage1, RZImage2, RZImage3];
 
   const cargas_description = `
@@ -49,7 +166,6 @@ const MyProjects = () => {
 
   const cargas_link = 'https://labsol.cozcyt.gob.mx/git/devops-lab/sistema-de-cargas-uaie';
 
-  const [CargasIndex, setCargascIndex] = useState(0);
   const CargasImages = [cargasI1, cargasI2, cargasI3];
 
   const cosiap_description = `
@@ -58,32 +174,14 @@ const MyProjects = () => {
 
   const cosiap_link = 'https://labsol.cozcyt.gob.mx/git/RafaUC/cosiap';
 
-  const [CosiapIndex, setCosiapcIndex] = useState(0);
   const CosiapImages = [cosiap1, cosiap2, cosiap3, cosiap4];
 
   const pbienestar_description = `This project consists of an appointment scheduling system for a professional psychological care clinic. It enables administrators to manage specialists' profile status and review appointment details for informed decision-making, ensuring optimal patient care. Additionally, the system automates email notifications for patients, specialists, and administrators, providing real-time updates on appointment changes. It also integrates with the Google Calendar API, allowing users to save appointments to their accounts and receive automated reminders. The system features secure authentication using JSON Web Token (JWT), ensuring protected access to user accounts and sensitive information.
   `;
 
-  const [pbienestarIndex, setPbienestarIndex] = useState(0);
   const pbienestarImages = [pbienestar1, pbienestar2, pbienestar3];
 
-  const nextSlide = (images, setIndex) => {
-    setIndex((prevIndex) => (prevIndex + 1) % images.length);
-  };
-
-  const previousSlide = (images, setIndex) => {
-    setIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-  };
-
-  const handleImageClick = (image) =>{
-    setActiveImage(image);
-    setIsFullScreen(true);
-  };
-
-  const closeFullScreen = () =>{
-      setIsFullScreen(false);
-      setActiveImage(null);
-  };
+  const hasMultiple = lightbox && lightbox.images.length > 1;
 
   return (
     <div className="main-card">
@@ -91,165 +189,112 @@ const MyProjects = () => {
         <span className="experience-badge">Featured Projects & Portfolio</span>
       </div>
 
-    {/* Card for Punto Bienestar */}
-    <div className="info-card">
-        <div className="header-container">
-          <h3>Appointment Scheduling System</h3>
-        </div>
-        <p>{pbienestar_description}</p>
-        <div className="carousel-container">
-          <button
-            className="carousel-button left"
-            onClick={() => previousSlide(pbienestarImages, setPbienestarIndex)}
-          >
-            ◀
-          </button>
-          <img
-            className="carousel-image"
-            onClick={() => handleImageClick(pbienestarImages[pbienestarIndex])}
-            src={pbienestarImages[pbienestarIndex]}
-            alt={`Punto Bienestar ${pbienestarIndex + 1}`}
-            style={{ maxWidth: '100%', height: 'auto' }} 
-          />
-          <button
-            className="carousel-button right"
-            onClick={() => nextSlide(pbienestarImages, setPbienestarIndex)}
-          >
-            ▶
-          </button>
-        </div>
-      </div>
-    {/* Card for Cosiap */}
-    <div className="info-card">
-        <div className="header-container">
-          <h3>Sistema de Apoyos COZCyT</h3>
-          <a href={cosiap_link} target="_blank" rel="noopener noreferrer">
-            <img className="logo-image" src={githubImage} alt="GitHub" />
-          </a>
-        </div>
-        <p>{cosiap_description}</p>
-        <div className="carousel-container">
-          <button
-            className="carousel-button left"
-            onClick={() => previousSlide(CosiapImages, setCosiapcIndex)}
-          >
-            ◀
-          </button>
-          <img
-            className="carousel-image"
-            onClick={() => handleImageClick(CosiapImages[CosiapIndex])}
-            src={CosiapImages[CosiapIndex]}
-            alt={`Cosiap ${CosiapIndex + 1}`}
-            style={{ maxWidth: '100%', height: 'auto' }} 
-          />
-          <button
-            className="carousel-button right"
-            onClick={() => nextSlide(CosiapImages, setCosiapcIndex)}
-          >
-            ▶
-          </button>
-        </div>
-      </div>
+      <ProjectCard
+        title="Appointment Scheduling System"
+        description={pbienestar_description}
+        images={pbienestarImages}
+        label="Punto Bienestar"
+        onExpand={setLightbox}
+      />
 
-    {/* Card for Cargas UAIE */}
-    <div className="info-card">
-        <div className="header-container">
-          <h3>Sistema de Cargas UAIE</h3>
-          <a href={cargas_link} target="_blank" rel="noopener noreferrer">
-            <img className="logo-image" src={githubImage} alt="GitHub" />
-          </a>
-        </div>
-        <p>{cargas_description}</p>
-        <div className="carousel-container">
-          <button
-            className="carousel-button left"
-            onClick={() => previousSlide(CargasImages, setCargascIndex)}
-          >
-            ◀
-          </button>
-          <img
-            className="carousel-image"
-            onClick={() => handleImageClick(CargasImages[CargasIndex])}
-            src={CargasImages[CargasIndex]}
-            alt={`Cargas ${CargasIndex + 1}`}
-            style={{ maxWidth: '100%', height: 'auto' }} 
-          />
-          <button
-            className="carousel-button right"
-            onClick={() => nextSlide(CargasImages, setCargascIndex)}
-          >
-            ▶
-          </button>
-        </div>
-      </div>
+      <ProjectCard
+        title="Sistema de Apoyos COZCyT"
+        link={cosiap_link}
+        description={cosiap_description}
+        images={CosiapImages}
+        label="Cosiap"
+        onExpand={setLightbox}
+      />
 
-      {/* Card for Bazar Sol */}
-      <div className="info-card">
-        <div className="header-container">
-          <h3>Bazar Sol</h3>
-          <a href={bazar_Sol_link} target="_blank" rel="noopener noreferrer">
-            <img className="logo-image" src={githubImage} alt="GitHub" />
-          </a>
-        </div>
-        <p>{bazar_sol_description}</p>
-        <div className="carousel-container">
-          <button
-            className="carousel-button left"
-            onClick={() => previousSlide(bazarSolImages, setBazarSolIndex)}
-          >
-            ◀
-          </button>
-          <img
-            className="carousel-image"
-            onClick={() => handleImageClick(bazarSolImages[bazarSolIndex])}
-            src={bazarSolImages[bazarSolIndex]}
-            alt={`Bazar Sol ${bazarSolIndex + 1}`}
-            style={{ maxWidth: '100%', height: 'auto' }} 
-          />
-          <button
-            className="carousel-button right"
-            onClick={() => nextSlide(bazarSolImages, setBazarSolIndex)}
-          >
-            ▶
-          </button>
-        </div>
-      </div>
+      <ProjectCard
+        title="Sistema de Cargas UAIE"
+        link={cargas_link}
+        description={cargas_description}
+        images={CargasImages}
+        label="Cargas"
+        onExpand={setLightbox}
+      />
 
-      {/* Card for RentaZac */}
-      <div className="info-card">
-        <div className="header-container">
-          <h3>RentaZac</h3>
-          <a href={rentazac_link} target="_blank" rel="noopener noreferrer">
-            <img className="logo-image" src={githubImage} alt="GitHub" />
-          </a>
-        </div>
-        <p>{rentaZac_description}</p>
-        <div className="carousel-container">
-          <button
-            className="carousel-button left"
-            onClick={() => previousSlide(RentaZacImages, setRentaZacIndex)}
-          >
-            ◀
+      <ProjectCard
+        title="Bazar Sol"
+        link={bazar_Sol_link}
+        description={bazar_sol_description}
+        images={bazarSolImages}
+        label="Bazar Sol"
+        onExpand={setLightbox}
+      />
+
+      <ProjectCard
+        title="RentaZac"
+        link={rentazac_link}
+        description={rentaZac_description}
+        images={RentaZacImages}
+        label="RentaZac"
+        onExpand={setLightbox}
+      />
+
+      {/* Portalled to <body>: `.main-card` is `position: relative; z-index: 2`,
+          so it traps a nested overlay in its stacking context and the fixed
+          navbar (z-index 1000) paints over the whole thing. */}
+      {lightbox && createPortal(
+        <div
+          className="fullscreen-overlay"
+          onClick={closeLightbox}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${lightbox.label} screenshots`}
+        >
+          <button className="fullscreen-close" onClick={closeLightbox} aria-label="Close">
+            <CloseIcon />
           </button>
-          <img
-            className="carousel-image"
-            onClick={() => handleImageClick(RentaZacImages[RentaZacIndex])}
-            src={RentaZacImages[RentaZacIndex]}
-            alt={`RentaZac ${RentaZacIndex + 1}`}
-            style={{ maxWidth: '100%', height: 'auto' }} 
-          />
-          <button
-            className="carousel-button right"
-            onClick={() => nextSlide(RentaZacImages, setRentaZacIndex)}
+
+          {hasMultiple && (
+            <button
+              className="fullscreen-nav left"
+              onClick={(event) => {
+                event.stopPropagation();
+                stepLightbox(-1);
+              }}
+              aria-label="Previous screenshot"
+            >
+              <ChevronIcon direction="left" />
+            </button>
+          )}
+
+          <figure
+            className="fullscreen-figure"
+            onClick={(event) => event.stopPropagation()}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
           >
-            ▶
-          </button>
-        </div>
-      </div>
-      {isFullScreen && (
-        <div className="fullscreen-overlay" onClick={closeFullScreen}>
-          <img src={activeImage} alt="Enlarged project" className="fullscreen-image" />
-        </div>
+            <img
+              src={lightbox.images[lightbox.index]}
+              alt={`${lightbox.label} ${lightbox.index + 1} of ${lightbox.images.length}`}
+              className="fullscreen-image"
+            />
+            {hasMultiple && (
+              <figcaption className="fullscreen-counter">
+                {lightbox.label}
+                <span aria-hidden="true">·</span>
+                <strong>{lightbox.index + 1}</strong> / {lightbox.images.length}
+              </figcaption>
+            )}
+          </figure>
+
+          {hasMultiple && (
+            <button
+              className="fullscreen-nav right"
+              onClick={(event) => {
+                event.stopPropagation();
+                stepLightbox(1);
+              }}
+              aria-label="Next screenshot"
+            >
+              <ChevronIcon direction="right" />
+            </button>
+          )}
+        </div>,
+        document.body
       )}
     </div>
   );
