@@ -19,6 +19,7 @@ import pbienestar2 from '../../images/Projects/PuntoBienestar2.jpeg';
 import pbienestar3 from '../../images/Projects/PuntoBienestar3.jpeg';
 
 const SWIPE_THRESHOLD = 50;
+const MAX_SCROLLBAR_WIDTH = 40;
 
 const ChevronIcon = ({ direction }) => (
   <svg className="chevron-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -165,23 +166,41 @@ const MyProjects = () => {
   useEffect(() => {
     if (!isOpen) return undefined;
 
-    // Hiding the overflow takes the scrollbar away, which widens the viewport
-    // and makes the fixed navbar and every centred element jump sideways on
-    // open and back again on close. Hold the width it freed while locked.
-    const gutter = window.innerWidth - document.documentElement.clientWidth;
+    const root = document.documentElement;
     const previousOverflow = document.body.style.overflow;
     const previousPadding = document.body.style.paddingRight;
 
     document.body.style.overflow = 'hidden';
+
+    // Hiding the overflow takes the scrollbar away, which widens the viewport
+    // and makes the fixed navbar and every centred element jump sideways on
+    // open and back again on close. Hold the width it freed while locked.
+    // Clamped: this difference is only the scrollbar under normal conditions,
+    // and a bogus reading applied as padding would shove the whole page across.
+    const measured = window.innerWidth - root.clientWidth;
+    const gutter = measured > 0 && measured <= MAX_SCROLLBAR_WIDTH ? measured : 0;
     if (gutter > 0) {
       document.body.style.paddingRight = `${gutter}px`;
-      document.documentElement.style.setProperty('--scroll-lock-gutter', `${gutter}px`);
+      root.style.setProperty('--scroll-lock-gutter', `${gutter}px`);
     }
 
+    // Hand the overlay the area that is actually visible. Sizing it off the
+    // initial containing block put it wider than the window, which centred the
+    // image on the wrong middle and pushed the controls off the right edge.
+    const syncViewport = () => {
+      root.style.setProperty('--viewport-w', `${root.clientWidth}px`);
+      root.style.setProperty('--viewport-h', `${root.clientHeight}px`);
+    };
+    syncViewport();
+    window.addEventListener('resize', syncViewport);
+
     return () => {
+      window.removeEventListener('resize', syncViewport);
       document.body.style.overflow = previousOverflow;
       document.body.style.paddingRight = previousPadding;
-      document.documentElement.style.removeProperty('--scroll-lock-gutter');
+      root.style.removeProperty('--scroll-lock-gutter');
+      root.style.removeProperty('--viewport-w');
+      root.style.removeProperty('--viewport-h');
     };
   }, [isOpen]);
 
