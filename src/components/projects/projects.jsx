@@ -33,6 +33,24 @@ const CloseIcon = () => (
   </svg>
 );
 
+const ExpandIcon = () => (
+  <svg className="close-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M9 3H3v6" />
+    <path d="M15 21h6v-6" />
+    <path d="M3 3l7 7" />
+    <path d="M21 21l-7-7" />
+  </svg>
+);
+
+const CollapseIcon = () => (
+  <svg className="close-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M3 9h6V3" />
+    <path d="M21 15h-6v6" />
+    <path d="M10 10L3 3" />
+    <path d="M14 14l7 7" />
+  </svg>
+);
+
 const ProjectCard = ({ title, link, description, images, label, onExpand }) => {
   const [index, setIndex] = useState(0);
 
@@ -91,11 +109,22 @@ const MyProjects = () => {
   // navigated without closing it. `setIndex` belongs to the card that opened
   // the view, so its inline carousel stays on whatever slide you leave on.
   const [lightbox, setLightbox] = useState(null);
+  // These are ~1920x890 desktop screenshots. Fitted to a portrait phone they
+  // come out around a fifth of the screen height, which is unreadable, so the
+  // expanded view can switch from fit-the-whole-thing to fill-the-height and
+  // pan sideways.
+  const [zoomed, setZoomed] = useState(false);
+  const [canZoom, setCanZoom] = useState(false);
   const touchStartX = useRef(null);
+  const viewportRef = useRef(null);
 
-  const closeLightbox = useCallback(() => setLightbox(null), []);
+  const closeLightbox = useCallback(() => {
+    setLightbox(null);
+    setZoomed(false);
+  }, []);
 
   const stepLightbox = useCallback((delta) => {
+    setZoomed(false);
     setLightbox((current) => {
       if (!current) return current;
       const nextIndex =
@@ -104,14 +133,60 @@ const MyProjects = () => {
     });
   }, []);
 
+  // Whether filling the height would actually buy anything on this screen.
+  const measureFit = (event) => {
+    const img = event.currentTarget;
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const narrow = vw <= 768;
+    const availableW = Math.min(1200, vw * (narrow ? 0.94 : 0.88));
+    const availableH = vh * (narrow ? 0.68 : 0.78);
+    const fittedH = Math.min(availableH, availableW / (img.naturalWidth / img.naturalHeight));
+    setCanZoom(fittedH < vh * 0.6);
+  };
+
+  // Start a zoom in the middle of the shot rather than at its left edge.
+  useEffect(() => {
+    const viewport = viewportRef.current;
+    if (!viewport || !zoomed) return;
+    viewport.scrollLeft = (viewport.scrollWidth - viewport.clientWidth) / 2;
+  }, [zoomed]);
+
   // Mirror the expanded slide back onto the card that opened it.
   useEffect(() => {
     if (!lightbox) return;
     lightbox.setIndex(lightbox.index);
   }, [lightbox]);
 
+  // Keyed on open/closed rather than on `lightbox` itself, so stepping through
+  // slides doesn't tear the scroll lock down and put it back on every press.
+  const isOpen = lightbox !== null;
+
   useEffect(() => {
-    if (!lightbox) return undefined;
+    if (!isOpen) return undefined;
+
+    // Hiding the overflow takes the scrollbar away, which widens the viewport
+    // and makes the fixed navbar and every centred element jump sideways on
+    // open and back again on close. Hold the width it freed while locked.
+    const gutter = window.innerWidth - document.documentElement.clientWidth;
+    const previousOverflow = document.body.style.overflow;
+    const previousPadding = document.body.style.paddingRight;
+
+    document.body.style.overflow = 'hidden';
+    if (gutter > 0) {
+      document.body.style.paddingRight = `${gutter}px`;
+      document.documentElement.style.setProperty('--scroll-lock-gutter', `${gutter}px`);
+    }
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.body.style.paddingRight = previousPadding;
+      document.documentElement.style.removeProperty('--scroll-lock-gutter');
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen) return undefined;
 
     const handleKeyDown = (event) => {
       if (event.key === 'Escape') closeLightbox();
@@ -119,18 +194,13 @@ const MyProjects = () => {
       if (event.key === 'ArrowLeft') stepLightbox(-1);
     };
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = previousOverflow;
-    };
-  }, [lightbox, closeLightbox, stepLightbox]);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, closeLightbox, stepLightbox]);
 
   const handleTouchStart = (event) => {
-    touchStartX.current = event.touches[0].clientX;
+    // While zoomed a drag pans the image, so it must not also change slide.
+    touchStartX.current = zoomed ? null : event.touches[0].clientX;
   };
 
   const handleTouchEnd = (event) => {
@@ -248,6 +318,20 @@ const MyProjects = () => {
             <CloseIcon />
           </button>
 
+          {canZoom && (
+            <button
+              className="fullscreen-zoom"
+              onClick={(event) => {
+                event.stopPropagation();
+                setZoomed((current) => !current);
+              }}
+              aria-pressed={zoomed}
+              aria-label={zoomed ? 'Fit image to screen' : 'Fill screen height'}
+            >
+              {zoomed ? <CollapseIcon /> : <ExpandIcon />}
+            </button>
+          )}
+
           {hasMultiple && (
             <button
               className="fullscreen-nav left"
@@ -262,23 +346,38 @@ const MyProjects = () => {
           )}
 
           <figure
-            className="fullscreen-figure"
+            className={`fullscreen-figure${zoomed ? ' is-zoomed' : ''}`}
             onClick={(event) => event.stopPropagation()}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
           >
-            <img
-              src={lightbox.images[lightbox.index]}
-              alt={`${lightbox.label} ${lightbox.index + 1} of ${lightbox.images.length}`}
-              className="fullscreen-image"
-            />
-            {hasMultiple && (
-              <figcaption className="fullscreen-counter">
-                {lightbox.label}
-                <span aria-hidden="true">·</span>
-                <strong>{lightbox.index + 1}</strong> / {lightbox.images.length}
-              </figcaption>
-            )}
+            <div
+              className="fullscreen-viewport"
+              ref={viewportRef}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+            >
+              <img
+                src={lightbox.images[lightbox.index]}
+                alt={`${lightbox.label} ${lightbox.index + 1} of ${lightbox.images.length}`}
+                className="fullscreen-image"
+                onLoad={measureFit}
+                onClick={canZoom ? () => setZoomed((current) => !current) : undefined}
+                style={canZoom ? { cursor: zoomed ? 'zoom-out' : 'zoom-in' } : undefined}
+              />
+            </div>
+            <figcaption className="fullscreen-counter">
+              {lightbox.label}
+              {hasMultiple && (
+                <>
+                  <span aria-hidden="true">·</span>
+                  <strong>{lightbox.index + 1}</strong> / {lightbox.images.length}
+                </>
+              )}
+              {canZoom && (
+                <span className="fullscreen-hint">
+                  {zoomed ? 'Drag to explore' : 'Tap image to zoom'}
+                </span>
+              )}
+            </figcaption>
           </figure>
 
           {hasMultiple && (

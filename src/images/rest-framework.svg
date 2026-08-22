@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 262" role="img" aria-label="Django REST Framework">
+  <title>Django REST Framework</title>
+  <!--
+    Dark-surface version of the Django REST Framework wordmark. The official
+    raster logo is near-black text plus hairline construction guides on a
+    transparent ground, which disappears on this site's dark cards and turns
+    into noise at the 36px icon size. This keeps the wordmark and the brand red
+    and drops the guides. textLength pins each word so the composition holds
+    even where the font stack resolves differently.
+  -->
+  <g font-family="Inter, 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif" fill="#e8e8e8">
+    <text x="88" y="54" font-size="54" font-weight="500" textLength="168" lengthAdjust="spacingAndGlyphs">django</text>
+    <text x="252" y="256" font-size="54" font-weight="600" textLength="272" lengthAdjust="spacingAndGlyphs">framework</text>
+  </g>
+  <text x="78" y="208"
+        font-family="Inter, 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif"
+        font-size="205" font-weight="500"
+        textLength="448" lengthAdjust="spacingAndGlyphs"
+        fill="none" stroke="#f0554d" stroke-width="9" stroke-linejoin="round">REST</text>
+</svg>
