@@ -1,6 +1,7 @@
 import '../../App.css';
 import img from '../../images/logonavbar.png';
 import { useLocation, useNavigate } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
     // manejaremos la navegacion mediante navigate.
@@ -16,10 +17,8 @@ const Navbar = () => {
                 <li className={location.pathname === "/projects" ? "active" : ""} onClick={() => navigate('/projects')}>Projects</li> 
                 <li className={location.pathname === "/experience" ? "active" : ""} onClick={() => navigate('/experience')}>Experience</li>  
             </ul>
-            <div className="hamburger">
-                <div className="line"></div>
-                <div className="line"></div>
-                <div className="line"></div>
+            <div className="navbar-controls">
+                <ThemeToggle />
             </div>
         </nav>
     );
