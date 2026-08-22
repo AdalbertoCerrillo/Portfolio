@@ -773,6 +773,18 @@ body::after {
    against a box that can disagree with the visible area, which centred the
    contents on the wrong middle and pushed the close button off screen. */
 .fullscreen-overlay {
+    /* The lightbox is dark in both themes — an image viewer is dark by
+       convention and it makes the screenshots read. Its backdrop and controls
+       are hardcoded, but its text, icons and borders read tokens, so the dark
+       values are pinned here; otherwise the light palette repaints the
+       chevrons and the close icon to 1.01:1 against their own buttons. */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #b8b8b8;
+    --color-border-secondary: rgba(255, 255, 255, 0.15);
+    --color-border-hover: rgba(255, 255, 255, 0.25);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.7);
+    --glow-lg: 0 0 30px rgba(255, 255, 255, 0.2);
     position: fixed;
     top: 0;
     left: 0;
