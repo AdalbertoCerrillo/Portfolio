@@ -42,8 +42,8 @@
     /* Navbar */
     --color-navbar-bg: rgba(10, 10, 10, 0.8);
     --color-navlink-hover: rgba(255, 255, 255, 0.05);
-    --color-navlink-active: rgba(255, 255, 255, 0.03);
-    --color-navlink-sweep: rgba(255, 255, 255, 0.1);
+    --color-contact-hover: rgba(255, 255, 255, 0.03);
+    --color-navbar-sweep: rgba(255, 255, 255, 0.1);
 
     /* Page background wash */
     --wash-1: rgba(40, 40, 40, 0.3);
@@ -923,7 +923,7 @@ body::after {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--color-navlink-sweep), transparent);
+    background: linear-gradient(90deg, transparent, var(--color-navbar-sweep), transparent);
     animation: shimmer 3s ease-in-out infinite;
 }
 
@@ -1024,7 +1024,7 @@ body::after {
 }
 
 .contact-item:hover {
-    background: var(--color-navlink-active);
+    background: var(--color-contact-hover);
 }
 
 .contact-item p,
