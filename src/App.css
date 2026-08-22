@@ -30,6 +30,43 @@
     --glow-md: 0 0 20px rgba(255, 255, 255, 0.15);
     --glow-lg: 0 0 30px rgba(255, 255, 255, 0.2);
 
+    /* Surface detail — the hairline top edge and the sweep on cards */
+    --color-edge-highlight: rgba(255, 255, 255, 0.05);
+    --color-edge-highlight-strong: rgba(255, 255, 255, 0.1);
+    --color-sweep: rgba(255, 255, 255, 0.03);
+    --color-sheen: rgba(255, 255, 255, 0.05);
+    --color-sheen-faint: rgba(255, 255, 255, 0.02);
+    --color-ripple: rgba(255, 255, 255, 0.1);
+    --color-logo-glow: rgba(255, 255, 255, 0.2);
+
+    /* Navbar */
+    --color-navbar-bg: rgba(10, 10, 10, 0.8);
+    --color-navlink-hover: rgba(255, 255, 255, 0.05);
+    --color-navlink-active: rgba(255, 255, 255, 0.03);
+    --color-navlink-sweep: rgba(255, 255, 255, 0.1);
+
+    /* Page background wash */
+    --wash-1: rgba(40, 40, 40, 0.3);
+    --wash-2: rgba(60, 60, 60, 0.2);
+    --wash-3: rgba(30, 30, 30, 0.4);
+    --particle-bright: rgba(255, 255, 255, 0.15);
+    --particle-dim: rgba(255, 255, 255, 0.1);
+    --grain-opacity: 0.5;
+    --particle-opacity-min: 0.3;
+    --particle-opacity-max: 0.5;
+
+    /* Primary action (CV button) */
+    --color-action-bg: var(--color-text-primary);
+    --color-action-bg-hover: var(--color-accent-secondary);
+    --color-action-text: #0f0f0f;
+    --color-action-pill-bg: rgba(0, 0, 0, 0.1);
+    --color-action-pill-text: rgba(0, 0, 0, 0.62);
+
+    /* Scrollbar + selection */
+    --color-scrollbar-thumb-hover: rgba(255, 255, 255, 0.2);
+    --color-selection: rgba(255, 255, 255, 0.2);
+    --color-badge-glow: rgba(255, 255, 255, 0.1);
+
     --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -48,9 +85,9 @@ body {
     padding: 0;
     background: var(--color-bg-primary);
     background-image:
-        radial-gradient(circle at 20% 30%, rgba(40, 40, 40, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(60, 60, 60, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(30, 30, 30, 0.4) 0%, transparent 70%);
+        radial-gradient(circle at 20% 30%, var(--wash-1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, var(--wash-2) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, var(--wash-3) 0%, transparent 70%);
     background-attachment: fixed;
     min-height: 100vh;
     overflow-x: hidden;
@@ -68,7 +105,7 @@ body::before {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 1;
-    opacity: 0.5;
+    opacity: var(--grain-opacity);
 }
 
 /* Animated background particles */
@@ -80,12 +117,12 @@ body::after {
     width: 100%;
     height: 100%;
     background-image:
-        radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.15), transparent),
-        radial-gradient(2px 2px at 60% 70%, rgba(255, 255, 255, 0.1), transparent),
-        radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.1), transparent),
-        radial-gradient(1px 1px at 80% 10%, rgba(255, 255, 255, 0.15), transparent),
-        radial-gradient(2px 2px at 90% 60%, rgba(255, 255, 255, 0.1), transparent),
-        radial-gradient(1px 1px at 33% 80%, rgba(255, 255, 255, 0.1), transparent);
+        radial-gradient(2px 2px at 20% 30%, var(--particle-bright), transparent),
+        radial-gradient(2px 2px at 60% 70%, var(--particle-dim), transparent),
+        radial-gradient(1px 1px at 50% 50%, var(--particle-dim), transparent),
+        radial-gradient(1px 1px at 80% 10%, var(--particle-bright), transparent),
+        radial-gradient(2px 2px at 90% 60%, var(--particle-dim), transparent),
+        radial-gradient(1px 1px at 33% 80%, var(--particle-dim), transparent);
     background-size: 200% 200%;
     background-position: 0% 0%;
     pointer-events: none;
@@ -96,11 +133,11 @@ body::after {
 @keyframes floatingParticles {
     0%, 100% {
         background-position: 0% 0%;
-        opacity: 0.3;
+        opacity: var(--particle-opacity-min);
     }
     50% {
         background-position: 100% 100%;
-        opacity: 0.5;
+        opacity: var(--particle-opacity-max);
     }
 }
 
@@ -121,7 +158,7 @@ body::after {
     margin: 20px 15px;
     transition: all var(--transition-slow);
     overflow: visible;
-    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 var(--color-edge-highlight);
     border: 1px solid var(--color-border-primary);
 }
 
@@ -132,7 +169,7 @@ body::after {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+    background: linear-gradient(90deg, transparent, var(--color-sweep), transparent);
     transition: left 0.6s ease;
     pointer-events: none;
     z-index: 0;
@@ -146,7 +183,7 @@ body::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent, rgba(255, 255, 255, 0.02));
+    background: linear-gradient(135deg, var(--color-sheen), transparent, var(--color-sheen-faint));
     border-radius: var(--radius-xl);
     opacity: 0;
     transition: opacity 0.4s ease;
@@ -190,7 +227,7 @@ body::after {
     background: var(--color-bg-card);
     backdrop-filter: blur(20px);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 var(--color-edge-highlight);
     padding: 32px;
     width: 100%;
     max-width: 100%;
@@ -215,7 +252,7 @@ body::after {
 .contact-card:hover,
 .info-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-xl), var(--glow-md), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-xl), var(--glow-md), inset 0 1px 0 var(--color-edge-highlight-strong);
     border-color: var(--color-border-hover);
     background: var(--color-bg-card-hover);
     will-change: transform;
@@ -400,7 +437,7 @@ body::after {
 .logo-image:hover {
     opacity: 1;
     transform: scale(1.1) translateY(-2px) rotate(5deg);
-    filter: brightness(1.2) contrast(1.05) drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+    filter: brightness(1.2) contrast(1.05) drop-shadow(0 0 8px var(--color-logo-glow));
     animation: wiggle 0.5s ease;
 }
 
@@ -452,7 +489,7 @@ body::after {
     width: 200%;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--color-ripple);
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0.4s ease;
 }
@@ -498,8 +535,8 @@ body::after {
     box-sizing: border-box;
     border: 1px solid transparent;
     border-radius: 50px;
-    background: var(--color-text-primary);
-    color: #0f0f0f;
+    background: var(--color-action-bg);
+    color: var(--color-action-text);
     font-size: 0.95em;
     font-weight: 600;
     letter-spacing: -0.01em;
@@ -523,8 +560,8 @@ body::after {
 .cv-button-meta {
     padding: 3px 9px;
     border-radius: 20px;
-    background: rgba(0, 0, 0, 0.1);
-    color: rgba(0, 0, 0, 0.62);
+    background: var(--color-action-pill-bg);
+    color: var(--color-action-pill-text);
     font-size: 0.72em;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -547,7 +584,7 @@ body::after {
 
 @media (hover: hover) and (pointer: fine) {
     .cv-button:hover {
-        background: var(--color-accent-secondary);
+        background: var(--color-action-bg-hover);
         transform: translateY(-2px);
         box-shadow: var(--shadow-lg), var(--glow-md);
     }
@@ -857,12 +894,12 @@ body::after {
     width: calc(100% - var(--scroll-lock-gutter, 0px));
     justify-content: space-between;
     align-items: center;
-    background: rgba(10, 10, 10, 0.8);
+    background: var(--color-navbar-bg);
     backdrop-filter: blur(20px) saturate(180%);
     padding: 24px 48px;
     z-index: 1000;
     box-sizing: border-box;
-    box-shadow: var(--shadow-lg), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-lg), inset 0 -1px 0 var(--color-edge-highlight);
     border-bottom: 1px solid var(--color-border-primary);
     transition: all var(--transition-base);
     animation: slideDown 0.5s ease-out;
@@ -886,7 +923,7 @@ body::after {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, var(--color-navlink-sweep), transparent);
     animation: shimmer 3s ease-in-out infinite;
 }
 
@@ -954,7 +991,7 @@ body::after {
 
 .nav-links li:hover {
     color: var(--color-text-primary);
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--color-navlink-hover);
     transform: translateY(-2px);
 }
 
@@ -987,7 +1024,7 @@ body::after {
 }
 
 .contact-item:hover {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--color-navlink-active);
 }
 
 .contact-item p,
@@ -1007,7 +1044,7 @@ body::after {
     background: var(--color-bg-card);
     backdrop-filter: blur(20px);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 var(--color-edge-highlight);
     padding: 40px;
     width: 100%;
     max-width: 600px;
@@ -1099,7 +1136,7 @@ body::after {
     left: 50%;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+    background: radial-gradient(circle, var(--color-badge-glow), transparent);
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0.6s ease;
 }
@@ -1424,7 +1461,7 @@ button:focus-visible {
    SELECTION
    ============================================ */
 ::selection {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--color-selection);
     color: var(--color-text-primary);
 }
 
@@ -1443,5 +1480,5 @@ button:focus-visible {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--color-scrollbar-thumb-hover);
 }
