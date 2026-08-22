@@ -77,6 +77,72 @@
     --radius-xl: 24px;
 }
 
+/* Light theme. Mirrors the dark palette's structure rather than inverting it:
+   a card stays lighter than the page, the way it is in dark. */
+:root[data-theme='light'] {
+    --color-bg-primary: #f4f4f5;
+    --color-bg-secondary: #f4f4f5;
+    --color-bg-tertiary: #e9e9eb;
+    --color-bg-card: #ffffff;
+    --color-bg-card-hover: #fafafa;
+
+    --color-text-primary: #0f0f10;
+    --color-text-secondary: #52525b;
+    --color-text-tertiary: #71717a;
+    --color-text-muted: #8a8a93;
+
+    --color-accent-primary: #0f0f10;
+    --color-accent-secondary: #27272a;
+    --color-accent-tertiary: #3f3f46;
+
+    --color-border-primary: rgba(0, 0, 0, 0.08);
+    --color-border-secondary: rgba(0, 0, 0, 0.12);
+    --color-border-hover: rgba(0, 0, 0, 0.22);
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.10);
+    --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.12);
+
+    /* A white glow is invisible here. Hover still has to register, so these
+       become slightly deeper shadows instead of being switched off. */
+    --glow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --glow-md: 0 4px 16px rgba(0, 0, 0, 0.10);
+    --glow-lg: 0 8px 28px rgba(0, 0, 0, 0.12);
+
+    --color-edge-highlight: rgba(255, 255, 255, 0.9);
+    --color-edge-highlight-strong: rgba(255, 255, 255, 1);
+    --color-sweep: rgba(0, 0, 0, 0.03);
+    --color-sheen: rgba(0, 0, 0, 0.02);
+    --color-sheen-faint: rgba(0, 0, 0, 0.01);
+    --color-ripple: rgba(0, 0, 0, 0.06);
+    --color-logo-glow: rgba(0, 0, 0, 0.18);
+
+    --color-navbar-bg: rgba(255, 255, 255, 0.85);
+    --color-navlink-hover: rgba(0, 0, 0, 0.05);
+    --color-contact-hover: rgba(0, 0, 0, 0.04);
+    --color-navbar-sweep: rgba(0, 0, 0, 0.06);
+
+    --wash-1: rgba(215, 215, 220, 0.45);
+    --wash-2: rgba(228, 228, 235, 0.4);
+    --wash-3: rgba(238, 238, 242, 0.5);
+    --particle-bright: rgba(0, 0, 0, 0.06);
+    --particle-dim: rgba(0, 0, 0, 0.04);
+    --grain-opacity: 0.22;
+    --particle-opacity-min: 0.18;
+    --particle-opacity-max: 0.3;
+
+    --color-action-bg: #0f0f10;
+    --color-action-bg-hover: #27272a;
+    --color-action-text: #ffffff;
+    --color-action-pill-bg: rgba(255, 255, 255, 0.16);
+    --color-action-pill-text: rgba(255, 255, 255, 0.75);
+
+    --color-scrollbar-thumb-hover: rgba(0, 0, 0, 0.28);
+    --color-selection: rgba(0, 0, 0, 0.12);
+    --color-badge-glow: rgba(0, 0, 0, 0.06);
+}
+
 /* ============================================
    BODY & MAIN BACKGROUND
    ============================================ */
