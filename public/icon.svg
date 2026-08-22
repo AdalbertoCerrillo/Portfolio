@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Adalberto Cerrillo">
+  <title>Adalberto Cerrillo</title>
+  <!--
+    App icon: the code-window-and-gear mark from the site's navbar logo, squared
+    off for the manifest. Held inside the central 80% so the same file serves the
+    maskable purpose without the corners being cropped away.
+  -->
+  <rect width="512" height="512" rx="112" fill="#0a0a0a"/>
+  <g transform="translate(256 256) scale(0.72) translate(-256 -256)">
+    <g fill="none" stroke="#ffffff" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="96" y="112" width="320" height="240" rx="28"/>
+      <path d="M96 172h320"/>
+      <path d="M196 236l-30 32 30 32"/>
+      <path d="M316 236l30 32-30 32"/>
+      <path d="M276 228l-40 80"/>
+    </g>
+    <circle cx="392" cy="372" r="80" fill="#0a0a0a"/>
+    <g fill="#ffffff">
+      <rect x="379" y="316" width="26" height="30" rx="7"/>
+      <rect x="379" y="316" width="26" height="30" rx="7" transform="rotate(45 392 372)"/>
+      <rect x="379" y="316" width="26" height="30" rx="7" transform="rotate(90 392 372)"/>
+      <rect x="379" y="316" width="26" height="30" rx="7" transform="rotate(135 392 372)"/>
+      <rect x="379" y="316" width="26" height="30" rx="7" transform="rotate(180 392 372)"/>
+      <rect x="379" y="316" width="26" height="30" rx="7" transform="rotate(225 392 372)"/>
+      <rect x="379" y="316" width="26" height="30" rx="7" transform="rotate(270 392 372)"/>
+      <rect x="379" y="316" width="26" height="30" rx="7" transform="rotate(315 392 372)"/>
+    </g>
+    <circle cx="392" cy="372" r="42" fill="#ffffff"/>
+    <circle cx="392" cy="372" r="17" fill="#0a0a0a"/>
+  </g>
+</svg>

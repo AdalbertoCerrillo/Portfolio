@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+/* Inter and Poppins are linked from index.html so they are not stuck behind
+   this file's own download. Space Grotesk used to be fetched here too and was
+   never rendered — nothing in the app uses code or pre. */
 
 * {
   margin: 0;
@@ -16,7 +18,7 @@ body {
 }
 
 code {
-  font-family: 'Space Grotesk', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 h1, h2, h3, h4, h5, h6 {
