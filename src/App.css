@@ -1407,12 +1407,19 @@ body::after {
         row-gap: 8px;
     }
 
+    /* Shrinks so the logo and the control group always share row one,
+       regardless of how many controls the group holds - the controls must
+       never be squeezed, so the logo yields first. flex-basis: 0 keeps the
+       item's hypothetical size (what the wrap algorithm uses to decide line
+       breaks) at min-width rather than its natural/max size, which is what
+       lets it give up space instead of forcing a wrap. min-width is the
+       floor that keeps it legible. */
     .navbar-logo {
         order: 1;
+        flex: 1 1 0;
+        min-width: 64px;
         max-width: 140px;
         max-height: 36px;
-        flex: 0 1 auto;
-        min-width: 0;
     }
 
     .main-card {
@@ -1593,13 +1600,16 @@ body::after {
     }
 
     /* Beside the logo, not alone on a third row: that row cost ~55px of a
-       phone screen and read as an orphan. */
+       phone screen and read as an orphan. Fixed-size (no grow, no shrink) so
+       the control group's touch targets are never squeezed - the logo gives
+       up space instead. */
     .navbar-controls {
         order: 2;
         width: auto;
         justify-content: flex-end;
         margin-top: 0;
         flex: 0 0 auto;
+        flex-shrink: 0;
     }
 }
 
