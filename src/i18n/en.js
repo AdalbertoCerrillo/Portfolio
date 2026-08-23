@@ -62,7 +62,7 @@ const en = {
       company: 'Labsol Network',
       period: '(Sep 2023 - Nov 2024)',
       title: 'Software Developer Intern',
-      body: 'Part of the Free Software Laboratory team at COZCYT, where I led two projects delivered to the Autonomous University of Zacatecas and the Zacatecan Council of Science, Technology and Innovation — both replacing manual, paper-driven processes with systems their staff use day to day. Owning delivery end to end sharpened my full-stack development, requirements analysis, software design, testing, and project management.',
+      body: 'Part of the Free Software Laboratory team at COZCYT, where I led two projects delivered to the Autonomous University of Zacatecas and the Zacatecan Council of Science, Technology and Innovation. Owning delivery end to end sharpened my full-stack development, requirements analysis, software design, testing, and project management.',
     },
   },
   projects: {
@@ -75,7 +75,7 @@ const en = {
     cosiap: {
       title: 'Sistema de Apoyos COZCyT',
       label: 'Cosiap',
-      body: 'Grant management platform for the Zacatecan Council of Science, Technology and Innovation. Before it, every application for public research and entrepreneurship funding was submitted on paper and reviewed by hand. The platform moved the process online end to end: applicants upload their documentation and follow their submission, while administrators review, compare, and resolve applications from a single queue. Built during my internship at LABSOL Network as part of the delivery team.',
+      body: 'Grant management platform for the Zacatecan Council of Science, Technology and Innovation. Before it, every application for public research and entrepreneurship funding was submitted on paper. The platform moved the process online: applicants upload their documentation digitally and administrators manage the applications in one system. Built during my internship at LABSOL Network as part of the delivery team.',
     },
     cargas: {
       title: 'Sistema de Cargas UAIE',
@@ -85,12 +85,12 @@ const en = {
     bazarSol: {
       title: 'Bazar Sol',
       label: 'Bazar Sol',
-      body: 'E-commerce platform for a clothing retailer, built as a university project. Administrators own the catalogue: adding stock, adjusting prices, and maintaining product descriptions. Customers browse it, keep a private favourites list, and reserve items in a cart for later — the reservation step being what separates it from a plain storefront, since stock is held for a buyer who has not paid yet.',
+      body: 'E-commerce platform for a clothing retailer, built as a university project. Administrators own the catalogue: adding stock, adjusting prices, and maintaining product descriptions. Customers browse it, keep a private favourites list, and add items to a cart to reserve them for later.',
     },
     rentazac: {
       title: 'RentaZac',
       label: 'RentaZac',
-      body: 'Rental listings platform for the student community in Zacatecas. Students and landlords in the city coordinated housing through social media posts, where listings are unverifiable and vanish into a feed. RentaZac gives both sides a dedicated place to publish and browse rentals, so a student looking for housing near campus works from a real catalogue instead of a scroll. Built as a university project with a small team.',
+      body: 'Rental listings platform for the student community in Zacatecas. Students and landlords in the city were coordinating housing through social media posts; RentaZac gives both sides a dedicated place to publish and browse rentals instead. Built as a university project.',
     },
   },
 };

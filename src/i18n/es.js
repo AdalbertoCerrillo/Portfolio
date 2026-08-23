@@ -62,7 +62,7 @@ const es = {
       company: 'Labsol Network',
       period: '(Sep 2023 - Nov 2024)',
       title: 'Software Developer Intern',
-      body: 'Formé parte del equipo del Laboratorio de Software Libre del COZCYT, donde lideré dos proyectos entregados a la Universidad Autónoma de Zacatecas y al Consejo Zacatecano de Ciencia, Tecnología e Innovación — ambos sustituyendo procesos manuales en papel por sistemas que su personal usa a diario. Ser responsable de la entrega de principio a fin afianzó mi desarrollo full-stack, análisis de requerimientos, diseño de software, pruebas y gestión de proyectos.',
+      body: 'Formé parte del equipo del Laboratorio de Software Libre del COZCYT, donde lideré dos proyectos entregados a la Universidad Autónoma de Zacatecas y al Consejo Zacatecano de Ciencia, Tecnología e Innovación. Ser responsable de la entrega de principio a fin afianzó mi desarrollo full-stack, análisis de requerimientos, diseño de software, pruebas y gestión de proyectos.',
     },
   },
   projects: {
@@ -75,7 +75,7 @@ const es = {
     cosiap: {
       title: 'Sistema de Apoyos COZCyT',
       label: 'Cosiap',
-      body: 'Plataforma de gestión de apoyos económicos para el Consejo Zacatecano de Ciencia, Tecnología e Innovación. Antes de ella, cada solicitud de apoyo a la investigación y al emprendimiento se presentaba en papel y se revisaba a mano. La plataforma llevó el proceso completo a un entorno digital: los solicitantes suben su documentación y dan seguimiento a su trámite, mientras que los administradores revisan, comparan y resuelven las solicitudes desde una sola bandeja. Desarrollada durante mi periodo como becario en LABSOL Network, como parte del equipo encargado de la entrega.',
+      body: 'Plataforma de gestión de apoyos económicos para el Consejo Zacatecano de Ciencia, Tecnología e Innovación. Antes, cada solicitud de financiamiento público para investigación y emprendimiento se entregaba en papel. La plataforma trasladó el proceso a digital: los solicitantes suben su documentación y los administradores gestionan las solicitudes en un solo sistema. Desarrollada durante mi estancia como becario en LABSOL Network, como parte del equipo de entrega.',
     },
     cargas: {
       title: 'Sistema de Cargas UAIE',
@@ -85,12 +85,12 @@ const es = {
     bazarSol: {
       title: 'Bazar Sol',
       label: 'Bazar Sol',
-      body: 'Plataforma de comercio electrónico para una tienda de ropa, desarrollada como proyecto universitario. Los administradores tienen el control del catálogo: dan de alta productos y ajustan precios y descripciones. Los clientes lo recorren, guardan una lista privada de favoritos y reservan artículos en un carrito para después — el paso de reserva es lo que la distingue de un simple escaparate, ya que el inventario queda apartado para un comprador que aún no ha pagado.',
+      body: 'Plataforma de comercio electrónico para una tienda de ropa, desarrollada como proyecto universitario. Los administradores gestionan el catálogo: dan de alta existencias, ajustan precios y mantienen las descripciones de los productos. Los clientes lo exploran, guardan una lista privada de favoritos y agregan artículos al carrito para reservarlos.',
     },
     rentazac: {
       title: 'RentaZac',
       label: 'RentaZac',
-      body: 'Plataforma de renta de vivienda para la comunidad estudiantil de Zacatecas. Estudiantes y arrendadores de la ciudad coordinaban la renta de vivienda a través de publicaciones en redes sociales, donde los anuncios son imposibles de verificar y se pierden en el feed. RentaZac les da a ambos un espacio dedicado para publicar y buscar rentas, de modo que un estudiante que busca vivienda cerca del campus trabaja sobre un catálogo real en lugar de un scroll. Desarrollada como proyecto universitario con un equipo pequeño.',
+      body: 'Plataforma de anuncios de renta para la comunidad estudiantil de Zacatecas. Estudiantes y arrendadores de la ciudad coordinaban el alojamiento mediante publicaciones en redes sociales; RentaZac les da a ambos un lugar dedicado para publicar y explorar rentas. Desarrollada como proyecto universitario.',
     },
   },
 };
