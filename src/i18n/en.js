@@ -48,20 +48,20 @@ const en = {
     radii: {
       company: 'Radii Manufacturing',
       period: '(Jul 2025 - now)',
-      title: 'Software Engineer',
-      body: 'Software Engineer at Radii Manufacturing, a startup automating manufacturing processes through an AI-powered platform and a network of manufacturers, emerging as one of the most promising startups in Latin America.',
+      title: 'Founding Software Engineer',
+      body: "Founding Software Engineer at Radii Manufacturing, a startup automating manufacturing through an AI-powered platform and a network of manufacturers, and one of the most promising startups in Latin America. I define the company's technical direction alongside the founding team — the stack, the architecture, and the engineering practices the platform is built on — turning an early-stage product into a system the business can scale on.",
     },
     freelance: {
       company: 'Freelance Programmer',
       period: '(Jan 2025 - Jul 2025)',
       title: 'Freelance Software Developer',
-      body: 'I am always looking for development projects to provide my clients and employers with high-quality service. I strive to ensure that the products I deliver meet the highest standards. Since January 2025, I have been working on several projects, offering my services as a freelance programmer.',
+      body: 'Built software for clients as an independent developer, working inside multidisciplinary teams — designers, domain experts, and other engineers — to turn business problems into systems people actually use. I picked modern, well-supported technology to fit each problem rather than out of habit, and stayed accountable for the result from the first conversation through to delivery.',
     },
     labsol: {
       company: 'Labsol Network',
       period: '(Sep 2023 - Nov 2024)',
       title: 'Software Developer Intern',
-      body: 'I was part of the Free Software Laboratory (COZCyT) team from September 2023 to November 2024. During my time at LABSOL, I was the leader of two projects carried out for Autonomous University of Zacatecas and The Zacatecan Council of Science, Technology and Innovation. Through the execution of these two projects, I significantly strengthened my knowledge of full-stack web development, requirements analysis, software design, software testing, project management, and teamwork.',
+      body: 'Part of the Free Software Laboratory team at COZCYT, where I led two projects delivered to the Autonomous University of Zacatecas and the Zacatecan Council of Science, Technology and Innovation — both replacing manual, paper-driven processes with systems their staff use day to day. Owning delivery end to end sharpened my full-stack development, requirements analysis, software design, testing, and project management.',
     },
   },
   projects: {
@@ -69,27 +69,27 @@ const en = {
     pbienestar: {
       title: 'Appointment Scheduling System',
       label: 'Punto Bienestar',
-      body: "This project consists of an appointment scheduling system for a professional psychological care clinic. It enables administrators to manage specialists' profile status and review appointment details for informed decision-making, ensuring optimal patient care. Additionally, the system automates email notifications for patients, specialists, and administrators, providing real-time updates on appointment changes. It also integrates with the Google Calendar API, allowing users to save appointments to their accounts and receive automated reminders. The system features secure authentication using JSON Web Token (JWT), ensuring protected access to user accounts and sensitive information.",
+      body: "Appointment scheduling system for a professional psychological care clinic. Administrators manage specialists' availability and review appointment details before confirming, keeping clinical judgement in the loop rather than handing scheduling to an automated queue. The system notifies patients, specialists, and administrators by email as appointments change, and writes confirmed appointments into users' Google Calendars through the Calendar API, so reminders arrive where people already look. Access is protected with JSON Web Token authentication.",
     },
     cosiap: {
       title: 'Sistema de Apoyos COZCyT',
       label: 'Cosiap',
-      body: 'As an Intern Developer at LABSOL Network, my team was tasked with developing a project for the Consejo Zacatecano de Ciencia, Tecnología e Innovación (COZCYT). This platform enables administrators to efficiently manage applications for economic grants submitted by students, researchers, professors, and entrepreneurs in Zacatecas City. Prior to the development of this system, the application process was cumbersome and manual, requiring applicants to submit all documentation in paper form. The new platform automates this process, streamlining the workflow and allowing applicants to upload their documents digitally, making the application process more convenient and accessible.',
+      body: 'Grant management platform for the Zacatecan Council of Science, Technology and Innovation. Before it, every application for public research and entrepreneurship funding was submitted on paper and reviewed by hand. The platform moved the process online end to end: applicants upload their documentation and follow their submission, while administrators review, compare, and resolve applications from a single queue. Built during my internship at LABSOL Network as part of the delivery team.',
     },
     cargas: {
       title: 'Sistema de Cargas UAIE',
       label: 'Cargas',
-      body: 'This website was developed as part of my social service in the LABSOL Network. The platform is designed to assist academic program coordinators at the Faculty of Electrical Engineering of Universidad Autónoma de Zacatecas in managing semester schedules, assigning professors, and organizing comprehensive course information. Its primary goal is to prevent scheduling conflicts between professors and class groups, as well as to streamline the process, making schedule management more efficient and automated.',
+      body: "Course-load and scheduling platform for the Faculty of Electrical Engineering at the Autonomous University of Zacatecas. Program coordinators build each semester's timetable, assign professors, and keep course information in one place, with the system catching conflicts between professors and class groups before a timetable is published — the problem the platform was commissioned to solve. Built during my social service with LABSOL Network.",
     },
     bazarSol: {
       title: 'Bazar Sol',
       label: 'Bazar Sol',
-      body: 'School project inspired by a modern e-commerce site. In this site, the main idea is to give the administrator the possibility of having control of the stock for a clothing store. The admin can upload new products to stock and adjust the prices and descriptions of each product. The customer user can see all the products in the catalog, and add their favorite products to a private favorites list. Additionally, they can add products to a shopping cart and reserve them for later.',
+      body: 'E-commerce platform for a clothing retailer, built as a university project. Administrators own the catalogue: adding stock, adjusting prices, and maintaining product descriptions. Customers browse it, keep a private favourites list, and reserve items in a cart for later — the reservation step being what separates it from a plain storefront, since stock is held for a buyer who has not paid yet.',
     },
     rentazac: {
       title: 'RentaZac',
       label: 'RentaZac',
-      body: 'School project for the student community of the city of Zacatecas. The main idea of the website is to give an alternative to landlords and students to see and post houses for rent on a trusted site instead of creating ads on social media. This website is offered as a good solution to the problem of thousands of students looking for a place to rent to continue their studies.',
+      body: 'Rental listings platform for the student community in Zacatecas. Students and landlords in the city coordinated housing through social media posts, where listings are unverifiable and vanish into a feed. RentaZac gives both sides a dedicated place to publish and browse rentals, so a student looking for housing near campus works from a real catalogue instead of a scroll. Built as a university project with a small team.',
     },
   },
 };

@@ -48,20 +48,20 @@ const es = {
     radii: {
       company: 'Radii Manufacturing',
       period: '(Jul 2025 - actualidad)',
-      title: 'Software Engineer',
-      body: 'Software Engineer en Radii Manufacturing, una startup que automatiza procesos de manufactura mediante una plataforma impulsada por inteligencia artificial y una red de fabricantes, consolidándose como una de las startups más prometedoras de América Latina.',
+      title: 'Founding Software Engineer',
+      body: 'Founding Software Engineer en Radii Manufacturing, una startup que automatiza procesos de manufactura mediante una plataforma con inteligencia artificial y una red de fabricantes, y una de las startups más prometedoras de Latinoamérica. Defino la dirección técnica de la empresa junto al equipo fundador — el stack, la arquitectura y las prácticas de ingeniería sobre las que se construye la plataforma — convirtiendo un producto en etapa temprana en un sistema sobre el que el negocio puede escalar.',
     },
     freelance: {
       company: 'Programador Freelance',
       period: '(Jan 2025 - Jul 2025)',
       title: 'Freelance Software Developer',
-      body: 'Siempre estoy en busca de proyectos de desarrollo para ofrecer a mis clientes y empleadores un servicio de alta calidad. Me esfuerzo por garantizar que los productos que entrego cumplan con los más altos estándares. Desde enero de 2025 he trabajado en varios proyectos, ofreciendo mis servicios como programador freelance.',
+      body: 'Desarrollé software para clientes como desarrollador independiente, trabajando dentro de equipos multidisciplinarios — diseñadores, expertos del dominio y otros ingenieros — para convertir problemas de negocio en sistemas que la gente realmente usa. Elegí tecnología de vanguardia y bien respaldada según el problema, no por costumbre, y me hice responsable del resultado desde la primera conversación hasta la entrega.',
     },
     labsol: {
       company: 'Labsol Network',
       period: '(Sep 2023 - Nov 2024)',
       title: 'Software Developer Intern',
-      body: 'Formé parte del equipo del Laboratorio de Software Libre (COZCYT) de septiembre de 2023 a noviembre de 2024. Durante mi tiempo en LABSOL, fui líder de dos proyectos realizados para la Universidad Autónoma de Zacatecas y el Consejo Zacatecano de Ciencia, Tecnología e Innovación. A través de la ejecución de estos dos proyectos, fortalecí de manera significativa mis conocimientos en desarrollo web full-stack, análisis de requerimientos, diseño de software, pruebas de software, gestión de proyectos y trabajo en equipo.',
+      body: 'Formé parte del equipo del Laboratorio de Software Libre del COZCYT, donde lideré dos proyectos entregados a la Universidad Autónoma de Zacatecas y al Consejo Zacatecano de Ciencia, Tecnología e Innovación — ambos sustituyendo procesos manuales en papel por sistemas que su personal usa a diario. Ser responsable de la entrega de principio a fin afianzó mi desarrollo full-stack, análisis de requerimientos, diseño de software, pruebas y gestión de proyectos.',
     },
   },
   projects: {
@@ -69,27 +69,27 @@ const es = {
     pbienestar: {
       title: 'Sistema de Agendamiento de Citas',
       label: 'Punto Bienestar',
-      body: 'Este proyecto consiste en un sistema de agendamiento de citas para una clínica de atención psicológica profesional. Permite a los administradores gestionar el estatus de los perfiles de los especialistas y revisar los detalles de las citas para tomar decisiones informadas, garantizando una atención óptima a los pacientes. Además, el sistema automatiza las notificaciones por correo electrónico para pacientes, especialistas y administradores, brindando actualizaciones en tiempo real sobre los cambios en las citas. También se integra con la API de Google Calendar, lo que permite a los usuarios guardar citas en sus cuentas y recibir recordatorios automáticos. El sistema cuenta con autenticación segura mediante JSON Web Token (JWT), garantizando el acceso protegido a las cuentas de los usuarios y a la información sensible.',
+      body: 'Sistema de agendamiento de citas para una clínica de atención psicológica profesional. Los administradores gestionan la disponibilidad de los especialistas y revisan los detalles de cada cita antes de confirmarla, manteniendo el criterio clínico en el proceso en lugar de dejar el agendamiento a una cola automatizada. El sistema notifica por correo electrónico a pacientes, especialistas y administradores cada vez que una cita cambia, y registra las citas confirmadas en el Google Calendar de los usuarios mediante la API de Calendar, para que los recordatorios lleguen donde la gente ya los revisa. El acceso está protegido con autenticación JSON Web Token.',
     },
     cosiap: {
       title: 'Sistema de Apoyos COZCyT',
       label: 'Cosiap',
-      body: 'Como desarrollador becario en LABSOL Network, mi equipo tuvo la tarea de desarrollar un proyecto para el Consejo Zacatecano de Ciencia, Tecnología e Innovación (COZCYT). Esta plataforma permite a los administradores gestionar de manera eficiente las solicitudes de apoyos económicos presentadas por estudiantes, investigadores, profesores y emprendedores de la ciudad de Zacatecas. Antes del desarrollo de este sistema, el proceso de solicitud era engorroso y manual, y requería que los solicitantes entregaran toda la documentación en papel. La nueva plataforma automatiza este proceso, agiliza el flujo de trabajo y permite a los solicitantes subir sus documentos de forma digital, haciendo el proceso de solicitud más cómodo y accesible.',
+      body: 'Plataforma de gestión de apoyos económicos para el Consejo Zacatecano de Ciencia, Tecnología e Innovación. Antes de ella, cada solicitud de apoyo a la investigación y al emprendimiento se presentaba en papel y se revisaba a mano. La plataforma llevó el proceso completo a un entorno digital: los solicitantes suben su documentación y dan seguimiento a su trámite, mientras que los administradores revisan, comparan y resuelven las solicitudes desde una sola bandeja. Desarrollada durante mi periodo como becario en LABSOL Network, como parte del equipo encargado de la entrega.',
     },
     cargas: {
       title: 'Sistema de Cargas UAIE',
       label: 'Cargas',
-      body: 'Este sitio web fue desarrollado como parte de mi servicio social en LABSOL Network. La plataforma está diseñada para apoyar a los coordinadores de los programas académicos de la Facultad de Ingeniería Eléctrica de la Universidad Autónoma de Zacatecas en la gestión de los horarios semestrales, la asignación de profesores y la organización integral de la información de los cursos. Su objetivo principal es evitar conflictos de horario entre profesores y grupos, además de agilizar el proceso, haciendo la gestión de horarios más eficiente y automatizada.',
+      body: 'Plataforma de carga académica y horarios para la Facultad de Ingeniería Eléctrica de la Universidad Autónoma de Zacatecas. Los coordinadores de programa arman el horario de cada semestre, asignan profesores y concentran la información de los cursos en un solo lugar, mientras el sistema detecta conflictos entre profesores y grupos antes de publicar el horario — el problema para el que se encargó la plataforma. Desarrollada durante mi servicio social en LABSOL Network.',
     },
     bazarSol: {
       title: 'Bazar Sol',
       label: 'Bazar Sol',
-      body: 'Proyecto escolar inspirado en un sitio de comercio electrónico moderno. La idea principal de este sitio es darle al administrador la posibilidad de controlar el inventario de una tienda de ropa. El administrador puede subir nuevos productos al inventario y ajustar los precios y descripciones de cada producto. El usuario cliente puede ver todos los productos del catálogo y agregar sus productos favoritos a una lista de favoritos privada. Además, puede agregar productos a un carrito de compras y reservarlos para después.',
+      body: 'Plataforma de comercio electrónico para una tienda de ropa, desarrollada como proyecto universitario. Los administradores tienen el control del catálogo: dan de alta productos y ajustan precios y descripciones. Los clientes lo recorren, guardan una lista privada de favoritos y reservan artículos en un carrito para después — el paso de reserva es lo que la distingue de un simple escaparate, ya que el inventario queda apartado para un comprador que aún no ha pagado.',
     },
     rentazac: {
       title: 'RentaZac',
       label: 'RentaZac',
-      body: 'Proyecto escolar para la comunidad estudiantil de la ciudad de Zacatecas. La idea principal del sitio web es ofrecer a arrendadores y estudiantes una alternativa para ver y publicar casas en renta en un sitio confiable, en lugar de crear anuncios en redes sociales. Este sitio web se presenta como una buena solución al problema de miles de estudiantes que buscan un lugar para rentar y continuar sus estudios.',
+      body: 'Plataforma de renta de vivienda para la comunidad estudiantil de Zacatecas. Estudiantes y arrendadores de la ciudad coordinaban la renta de vivienda a través de publicaciones en redes sociales, donde los anuncios son imposibles de verificar y se pierden en el feed. RentaZac les da a ambos un espacio dedicado para publicar y buscar rentas, de modo que un estudiante que busca vivienda cerca del campus trabaja sobre un catálogo real en lugar de un scroll. Desarrollada como proyecto universitario con un equipo pequeño.',
     },
   },
 };
