@@ -1,7 +1,6 @@
 const en = {
   nav: { about: 'About Me', projects: 'Projects', experience: 'Experience' },
   common: {
-    languageLabel: 'Switch to Spanish',
     language: 'Language',
     themeToLight: 'Switch to light theme',
     themeToDark: 'Switch to dark theme',

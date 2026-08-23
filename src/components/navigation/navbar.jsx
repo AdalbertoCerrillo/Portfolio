@@ -8,7 +8,6 @@ import MoonphaseBadge from './MoonphaseBadge';
 import { useTranslation } from '../../i18n/I18nProvider';
 
 const Navbar = () => {
-    // manejaremos la navegacion mediante navigate.
     const navigate = useNavigate();
     const location = useLocation();
     const navRef = useRef(null);
