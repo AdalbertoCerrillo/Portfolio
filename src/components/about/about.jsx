@@ -8,7 +8,7 @@ import pythonLogo from '../../images/python.png'
 import JavaLogo from '../../images/java.png'
 import JavascriptLogo from '../../images/javascript.png'
 import DjangoLogo from '../../images/Django.png'
-import restFrameworkLogo from '../../images/rest-framework.svg'
+import RestFrameworkLogo from '../icons/RestFrameworkLogo'
 import ReactLogo from '../../images/react.png'
 import cssLogo from '../../images/css.jpg'
 import dockerLogo from '../../images/docker.jpg'
@@ -113,7 +113,7 @@ const About = () => {
                     <p className='icon-text'> JavaScript<img src={JavascriptLogo} alt="JavaScript" className="logo-image" /></p>
                     <p className='icon-text'> Django<img src={DjangoLogo} alt="Django" className="logo-image" /></p>
                     <p className='icon-text'> SpringBoot<img src={springboot} alt="spring" className="logo-image" /></p>
-                    <p className='icon-text'> Rest-Framework<img src={restFrameworkLogo} alt="Django Rest Framework" className="logo-image" /></p>
+                    <p className='icon-text'> Rest-Framework<RestFrameworkLogo className="logo-image" /></p>
                     <p className='icon-text'> Postman<img src={postman} alt="Postman" className="logo-image" /></p>
                     <p className='icon-text'> React<img src={ReactLogo} alt="React" className="logo-image" /></p>
                     <p className='icon-text'> CSS<img src={cssLogo} alt="CSS" className="logo-image" /></p>

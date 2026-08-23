@@ -525,6 +525,11 @@ body::after {
     transform: scale(1.02);
 }
 
+/* Greyscale artwork authored for a dark bar; inverting is exact here. */
+:root[data-theme='light'] .navbar-logo {
+    filter: invert(1) brightness(0.85);
+}
+
 .icon-text {
     display: flex;
     flex-direction: column;
