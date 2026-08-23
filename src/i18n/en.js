@@ -54,10 +54,10 @@ const en = {
       body: "Founding Software Engineer at Radii Manufacturing, a startup automating manufacturing through an AI-powered platform and a network of manufacturers, and one of the most promising startups in Latin America. I define the company's technical direction alongside the founding team — the stack, the architecture, and the engineering practices the platform is built on — turning an early-stage product into a system the business can scale on.",
     },
     freelance: {
-      company: 'Freelance Programmer',
-      period: '(Jan 2025 - Jul 2025)',
-      title: 'Freelance Software Developer',
-      body: 'Built software for clients as an independent developer, working inside multidisciplinary teams — designers, domain experts, and other engineers — to turn business problems into systems people actually use. I picked modern, well-supported technology to fit each problem rather than out of habit, and stayed accountable for the result from the first conversation through to delivery.',
+      company: 'Freelance',
+      period: '(Jan 2025 - now)',
+      title: 'Software Engineer',
+      body: 'I build software for clients as an independent engineer, working inside multidisciplinary teams — designers, domain experts, and other engineers — to turn business problems into systems people actually use. I pick modern, well-supported technology to fit each problem rather than out of habit, and stay accountable for the result from the first conversation through to delivery.',
     },
     labsol: {
       company: 'Labsol Network',
