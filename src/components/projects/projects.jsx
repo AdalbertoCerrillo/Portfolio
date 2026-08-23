@@ -312,7 +312,7 @@ const MyProjects = () => {
           onClick={closeLightbox}
           role="dialog"
           aria-modal="true"
-          aria-label={`${lightbox.label} screenshots`}
+          aria-label={`${lightbox.label} — ${t('common.screenshots')}`}
         >
           <button className="fullscreen-close" onClick={closeLightbox} aria-label={t('common.close')}>
             <CloseIcon />
@@ -357,7 +357,7 @@ const MyProjects = () => {
             >
               <img
                 src={lightbox.images[lightbox.index]}
-                alt={`${lightbox.label} ${lightbox.index + 1} of ${lightbox.images.length}`}
+                alt={`${lightbox.label} ${lightbox.index + 1} ${t('common.of')} ${lightbox.images.length}`}
                 className="fullscreen-image"
                 onLoad={measureFit}
                 onClick={canZoom ? () => setZoomed((current) => !current) : undefined}

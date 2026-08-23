@@ -7,6 +7,8 @@ const en = {
     openRepo: 'source repository',
     prevShot: 'Previous screenshot',
     nextShot: 'Next screenshot',
+    of: 'of',
+    screenshots: 'screenshots',
     close: 'Close',
     zoomIn: 'Fill screen height',
     zoomOut: 'Fit image to screen',

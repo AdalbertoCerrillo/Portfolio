@@ -7,6 +7,8 @@ const es = {
     openRepo: 'repositorio de código',
     prevShot: 'Captura anterior',
     nextShot: 'Siguiente captura',
+    of: 'de',
+    screenshots: 'capturas',
     close: 'Cerrar',
     zoomIn: 'Llenar la altura de la pantalla',
     zoomOut: 'Ajustar imagen a la pantalla',
