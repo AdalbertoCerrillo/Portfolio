@@ -16,6 +16,8 @@ const en = {
     tapToZoom: 'Tap image to zoom',
     dragToExplore: 'Drag to explore',
     enlargedImage: 'Enlarged image',
+    moonphaseLabel: 'Moonphase',
+    comingSoon: 'Coming soon…',
   },
   about: {
     badge: 'About Me & Education',

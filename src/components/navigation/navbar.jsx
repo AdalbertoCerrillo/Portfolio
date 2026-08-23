@@ -4,6 +4,7 @@ import img from '../../images/logonavbar.png';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 import LanguageToggle from './LanguageToggle';
+import MoonphaseBadge from './MoonphaseBadge';
 import { useTranslation } from '../../i18n/I18nProvider';
 
 const Navbar = () => {
@@ -46,6 +47,7 @@ const Navbar = () => {
             </ul>
             <div className="navbar-controls">
                 <ThemeToggle />
+                <MoonphaseBadge />
                 <LanguageToggle />
             </div>
         </nav>
