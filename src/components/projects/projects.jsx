@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useTranslation } from '../../i18n/I18nProvider';
 import githubImage from '../../images/GitHub.png';
 import BSImage1 from '../../images/Projects/bazar_sol_1.png';
 import BSImage2 from '../../images/Projects/bazar_sol_2.png';
@@ -53,6 +54,7 @@ const CollapseIcon = () => (
 );
 
 const ProjectCard = ({ title, link, description, images, label, onExpand }) => {
+  const { t } = useTranslation();
   const [index, setIndex] = useState(0);
 
   const step = (delta) =>
@@ -67,7 +69,7 @@ const ProjectCard = ({ title, link, description, images, label, onExpand }) => {
             href={link}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`${title} source repository`}
+            aria-label={`${title} ${t('common.openRepo')}`}
           >
             <img className="logo-image" src={githubImage} alt="GitHub" />
           </a>
@@ -79,7 +81,7 @@ const ProjectCard = ({ title, link, description, images, label, onExpand }) => {
           <button
             className="carousel-button left"
             onClick={() => step(-1)}
-            aria-label={`Previous ${label} screenshot`}
+            aria-label={`${label}: ${t('common.prevShot')}`}
           >
             <ChevronIcon direction="left" />
           </button>
@@ -95,7 +97,7 @@ const ProjectCard = ({ title, link, description, images, label, onExpand }) => {
           <button
             className="carousel-button right"
             onClick={() => step(1)}
-            aria-label={`Next ${label} screenshot`}
+            aria-label={`${label}: ${t('common.nextShot')}`}
           >
             <ChevronIcon direction="right" />
           </button>
@@ -106,6 +108,7 @@ const ProjectCard = ({ title, link, description, images, label, onExpand }) => {
 };
 
 const MyProjects = () => {
+  const { t } = useTranslation();
   // Holds the whole slide list, not a single image, so the expanded view can be
   // navigated without closing it. `setIndex` belongs to the card that opened
   // the view, so its inline carousel stays on whatever slide you leave on.
@@ -230,43 +233,21 @@ const MyProjects = () => {
     stepLightbox(travelled < 0 ? 1 : -1);
   };
 
-  const bazar_sol_description = `
-    School project inspired by a modern e-commerce site. In this site, the main idea is to give the administrator the
-    possibility of having control of the stock for a clothing store. The admin can upload new products to stock and adjust the prices and descriptions of each product.
-    The customer user can see all the products in the catalog, and add their favorite products to a private favorites list. Additionally, they can add products to a shopping cart and reserve them for later.
-  `;
-
   const bazar_Sol_link = 'https://github.com/AdalbertoCV/Bazar_Sol';
 
   const bazarSolImages = [BSImage1, BSImage2, BSImage3];
-
-  const rentaZac_description = `
-    School project for the student community of the city of Zacatecas. The main idea of the website is to give an alternative to landlords and students to see and
-    post houses for rent on a trusted site instead of creating ads on social media. This website is offered as a good solution to the problem of thousands of students looking for a place to rent to continue their studies.
-  `;
 
   const rentazac_link = 'https://github.com/Viky-Gomez/RentaZac';
 
   const RentaZacImages = [RZImage1, RZImage2, RZImage3];
 
-  const cargas_description = `
-    This website was developed as part of my social service in the LABSOL Network. The platform is designed to assist academic program coordinators at the Faculty of Electrical Engineering of Universidad Autónoma de Zacatecas in managing semester schedules, assigning professors, and organizing comprehensive course information. Its primary goal is to prevent scheduling conflicts between professors and class groups, as well as to streamline the process, making schedule management more efficient and automated.
-  `;
-
   const cargas_link = 'https://labsol.cozcyt.gob.mx/git/devops-lab/sistema-de-cargas-uaie';
 
   const CargasImages = [cargasI1, cargasI2, cargasI3];
 
-  const cosiap_description = `
-    As an Intern Developer at LABSOL Network, my team was tasked with developing a project for the Consejo Zacatecano de Ciencia, Tecnología e Innovación (COZCYT). This platform enables administrators to efficiently manage applications for economic grants submitted by students, researchers, professors, and entrepreneurs in Zacatecas City. Prior to the development of this system, the application process was cumbersome and manual, requiring applicants to submit all documentation in paper form. The new platform automates this process, streamlining the workflow and allowing applicants to upload their documents digitally, making the application process more convenient and accessible.
-  `;
-
   const cosiap_link = 'https://labsol.cozcyt.gob.mx/git/RafaUC/cosiap';
 
   const CosiapImages = [cosiap1, cosiap2, cosiap3, cosiap4];
-
-  const pbienestar_description = `This project consists of an appointment scheduling system for a professional psychological care clinic. It enables administrators to manage specialists' profile status and review appointment details for informed decision-making, ensuring optimal patient care. Additionally, the system automates email notifications for patients, specialists, and administrators, providing real-time updates on appointment changes. It also integrates with the Google Calendar API, allowing users to save appointments to their accounts and receive automated reminders. The system features secure authentication using JSON Web Token (JWT), ensuring protected access to user accounts and sensitive information.
-  `;
 
   const pbienestarImages = [pbienestar1, pbienestar2, pbienestar3];
 
@@ -275,50 +256,50 @@ const MyProjects = () => {
   return (
     <div className="main-card">
       <div className="experience-header">
-        <span className="experience-badge">Featured Projects & Portfolio</span>
+        <span className="experience-badge">{t('projects.badge')}</span>
       </div>
 
       <ProjectCard
-        title="Appointment Scheduling System"
-        description={pbienestar_description}
+        title={t('projects.pbienestar.title')}
+        description={t('projects.pbienestar.body')}
         images={pbienestarImages}
-        label="Punto Bienestar"
+        label={t('projects.pbienestar.label')}
         onExpand={setLightbox}
       />
 
       <ProjectCard
-        title="Sistema de Apoyos COZCyT"
+        title={t('projects.cosiap.title')}
         link={cosiap_link}
-        description={cosiap_description}
+        description={t('projects.cosiap.body')}
         images={CosiapImages}
-        label="Cosiap"
+        label={t('projects.cosiap.label')}
         onExpand={setLightbox}
       />
 
       <ProjectCard
-        title="Sistema de Cargas UAIE"
+        title={t('projects.cargas.title')}
         link={cargas_link}
-        description={cargas_description}
+        description={t('projects.cargas.body')}
         images={CargasImages}
-        label="Cargas"
+        label={t('projects.cargas.label')}
         onExpand={setLightbox}
       />
 
       <ProjectCard
-        title="Bazar Sol"
+        title={t('projects.bazarSol.title')}
         link={bazar_Sol_link}
-        description={bazar_sol_description}
+        description={t('projects.bazarSol.body')}
         images={bazarSolImages}
-        label="Bazar Sol"
+        label={t('projects.bazarSol.label')}
         onExpand={setLightbox}
       />
 
       <ProjectCard
-        title="RentaZac"
+        title={t('projects.rentazac.title')}
         link={rentazac_link}
-        description={rentaZac_description}
+        description={t('projects.rentazac.body')}
         images={RentaZacImages}
-        label="RentaZac"
+        label={t('projects.rentazac.label')}
         onExpand={setLightbox}
       />
 
@@ -333,7 +314,7 @@ const MyProjects = () => {
           aria-modal="true"
           aria-label={`${lightbox.label} screenshots`}
         >
-          <button className="fullscreen-close" onClick={closeLightbox} aria-label="Close">
+          <button className="fullscreen-close" onClick={closeLightbox} aria-label={t('common.close')}>
             <CloseIcon />
           </button>
 
@@ -345,7 +326,7 @@ const MyProjects = () => {
                 setZoomed((current) => !current);
               }}
               aria-pressed={zoomed}
-              aria-label={zoomed ? 'Fit image to screen' : 'Fill screen height'}
+              aria-label={zoomed ? t('common.zoomOut') : t('common.zoomIn')}
             >
               {zoomed ? <CollapseIcon /> : <ExpandIcon />}
             </button>
@@ -358,7 +339,7 @@ const MyProjects = () => {
                 event.stopPropagation();
                 stepLightbox(-1);
               }}
-              aria-label="Previous screenshot"
+              aria-label={t('common.prevShot')}
             >
               <ChevronIcon direction="left" />
             </button>
@@ -393,7 +374,7 @@ const MyProjects = () => {
               )}
               {canZoom && (
                 <span className="fullscreen-hint">
-                  {zoomed ? 'Drag to explore' : 'Tap image to zoom'}
+                  {zoomed ? t('common.dragToExplore') : t('common.tapToZoom')}
                 </span>
               )}
             </figcaption>
@@ -406,7 +387,7 @@ const MyProjects = () => {
                 event.stopPropagation();
                 stepLightbox(1);
               }}
-              aria-label="Next screenshot"
+              aria-label={t('common.nextShot')}
             >
               <ChevronIcon direction="right" />
             </button>
