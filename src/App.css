@@ -1142,7 +1142,11 @@ body::after {
    middle of a three-control row, so a popover anchored to it (position:
    absolute; right: 0) can run off the left edge of a narrow viewport no
    matter how its width is clamped. Fixed positioning plus a viewport-relative
-   offset keeps it on-screen regardless of where the button lands. */
+   offset keeps it on-screen regardless of where the button lands - but only
+   because the markup portals this element to <body>. `.navbar` sets
+   `backdrop-filter`, which establishes a containing block for its fixed
+   descendants, so left in place this element would anchor to the navbar's
+   box instead of the viewport wherever an engine honors that rule. */
 .moonphase-popover {
     position: fixed;
     top: calc(var(--navbar-h, 120px) + 8px);
