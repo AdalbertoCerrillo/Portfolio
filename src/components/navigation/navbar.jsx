@@ -3,6 +3,7 @@ import '../../App.css';
 import img from '../../images/logonavbar.png';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
+import LanguageToggle from './LanguageToggle';
 import { useTranslation } from '../../i18n/I18nProvider';
 
 const Navbar = () => {
@@ -45,6 +46,7 @@ const Navbar = () => {
             </ul>
             <div className="navbar-controls">
                 <ThemeToggle />
+                <LanguageToggle />
             </div>
         </nav>
     );

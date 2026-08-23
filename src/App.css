@@ -1113,6 +1113,42 @@ body::after {
     }
 }
 
+.language-toggle {
+    display: inline-flex;
+    align-items: center;
+    height: 44px;
+    padding: 4px;
+    border-radius: 50px;
+    border: 1px solid var(--color-border-primary);
+}
+
+.language-option {
+    min-width: 40px;
+    height: 36px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 50px;
+    background: transparent;
+    color: var(--color-text-tertiary);
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background var(--transition-base), color var(--transition-base);
+}
+
+.language-option.is-active {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .language-option:not(.is-active):hover {
+        color: var(--color-text-primary);
+    }
+}
+
 /* ============================================
    CONTACT & SKILLS
    ============================================ */
