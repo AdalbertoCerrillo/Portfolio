@@ -1118,14 +1118,18 @@ body::after {
     display: inline-flex;
 }
 
-/* Not modal: it does not dim the page or lock scroll. It is a footnote. */
+/* Not modal: it does not dim the page or lock scroll. It is a footnote.
+   Anchored to the viewport, not to the button: the moon control sits in the
+   middle of a three-control row, so a popover anchored to it (position:
+   absolute; right: 0) can run off the left edge of a narrow viewport no
+   matter how its width is clamped. Fixed positioning plus a viewport-relative
+   offset keeps it on-screen regardless of where the button lands. */
 .moonphase-popover {
-    position: absolute;
-    top: calc(100% + 10px);
-    right: 0;
+    position: fixed;
+    top: calc(var(--navbar-h, 120px) + 8px);
+    right: max(12px, 3vw);
     z-index: 1100;
-    min-width: 200px;
-    max-width: min(260px, calc(100vw - 32px));
+    width: min(260px, calc(100vw - 24px));
     padding: 18px 20px;
     border-radius: var(--radius-lg);
     background: var(--color-bg-card);
