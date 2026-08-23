@@ -12,6 +12,7 @@ const es = {
     zoomOut: 'Ajustar imagen a la pantalla',
     tapToZoom: 'Toca la imagen para hacer zoom',
     dragToExplore: 'Arrastra para explorar',
+    enlargedImage: 'Imagen ampliada',
   },
   about: {
     badge: 'Sobre Mí y Educación',

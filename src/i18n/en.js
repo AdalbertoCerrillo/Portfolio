@@ -12,6 +12,7 @@ const en = {
     zoomOut: 'Fit image to screen',
     tapToZoom: 'Tap image to zoom',
     dragToExplore: 'Drag to explore',
+    enlargedImage: 'Enlarged image',
   },
   about: {
     badge: 'About Me & Education',
