@@ -1,16 +1,10 @@
 import labsolLogo from '../../images/Labsol.png'
 import freelance from '../../images/freelance.png'
 import radii from '../../images/radii.png'
+import { useTranslation } from '../../i18n/I18nProvider'
 
 const Experience = () =>{
-    const infoLabsol = `
-        I was part of the Free Software Laboratory (COZCyT) team from September 2023 to November 2024. During my time at LABSOL, I was the leader of two projects carried out for Autonomous University of Zacatecas and The Zacatecan Council of Science, Technology and Innovation. Through the execution of these two projects, I significantly strengthened my knowledge of full-stack web development, requirements analysis, software design, software testing, project management, and teamwork.
-    `;
-
-    const infoFreelance = `I am always looking for development projects to provide my clients and employers with high-quality service. I strive to ensure that the products I deliver meet the highest standards. Since January 2025, I have been working on several projects, offering my services as a freelance programmer.
-    `;
-
-    const infoRadii = `Software Engineer at Radii Manufacturing, a startup automating manufacturing processes through an AI-powered platform and a network of manufacturers, emerging as one of the most promising startups in Latin America.`;
+    const { t } = useTranslation();
 
     const labsolLink = 'https://labsol.cozcyt.gob.mx/';
 
@@ -19,24 +13,24 @@ const Experience = () =>{
     return (
         <div className="main-card">
             <div className="experience-header">
-                <span className="experience-badge">2+ Years of Experience</span>
+                <span className="experience-badge">{t('experience.badge')}</span>
             </div>
         <div className="info-card">
-                <h3>Radii Manufacturing (Jul 2025 - now)</h3>
-                <h4>Software Engineer</h4>
-                <p>{infoRadii}</p>
+                <h3>{`${t('experience.radii.company')} ${t('experience.radii.period')}`}</h3>
+                <h4>{t('experience.radii.title')}</h4>
+                <p>{t('experience.radii.body')}</p>
                 <a href={radiiLink} target="_blank" rel="noopener noreferrer"><img className='education-image' src={radii} alt='Radii logo'></img></a>
             </div>
             <div className="info-card">
-                <h3>Freelance Programmer (Jan 2025 - Jul 2025)</h3>
-                <h4>Freelance Software Developer</h4>
-                <p>{infoFreelance}</p>
+                <h3>{`${t('experience.freelance.company')} ${t('experience.freelance.period')}`}</h3>
+                <h4>{t('experience.freelance.title')}</h4>
+                <p>{t('experience.freelance.body')}</p>
                 <img className='education-image' src={freelance} alt='Freelance img'></img>
             </div>
             <div className="info-card">
-                <h3>Labsol Network (Sep 2023 - Nov 2024)</h3>
-                <h4>Software Developer Intern</h4>
-                <p>{infoLabsol}</p>
+                <h3>{`${t('experience.labsol.company')} ${t('experience.labsol.period')}`}</h3>
+                <h4>{t('experience.labsol.title')}</h4>
+                <p>{t('experience.labsol.body')}</p>
                 <a href={labsolLink} target="_blank" rel="noopener noreferrer"><img className='education-image' src={labsolLogo} alt='Labsol Logo'></img></a>
             </div>
         </div>

@@ -30,6 +30,43 @@
     --glow-md: 0 0 20px rgba(255, 255, 255, 0.15);
     --glow-lg: 0 0 30px rgba(255, 255, 255, 0.2);
 
+    /* Surface detail — the hairline top edge and the sweep on cards */
+    --color-edge-highlight: rgba(255, 255, 255, 0.05);
+    --color-edge-highlight-strong: rgba(255, 255, 255, 0.1);
+    --color-sweep: rgba(255, 255, 255, 0.03);
+    --color-sheen: rgba(255, 255, 255, 0.05);
+    --color-sheen-faint: rgba(255, 255, 255, 0.02);
+    --color-ripple: rgba(255, 255, 255, 0.1);
+    --color-logo-glow: rgba(255, 255, 255, 0.2);
+
+    /* Navbar */
+    --color-navbar-bg: rgba(10, 10, 10, 0.8);
+    --color-navlink-hover: rgba(255, 255, 255, 0.05);
+    --color-contact-hover: rgba(255, 255, 255, 0.03);
+    --color-navbar-sweep: rgba(255, 255, 255, 0.1);
+
+    /* Page background wash */
+    --wash-1: rgba(40, 40, 40, 0.3);
+    --wash-2: rgba(60, 60, 60, 0.2);
+    --wash-3: rgba(30, 30, 30, 0.4);
+    --particle-bright: rgba(255, 255, 255, 0.15);
+    --particle-dim: rgba(255, 255, 255, 0.1);
+    --grain-opacity: 0.5;
+    --particle-opacity-min: 0.3;
+    --particle-opacity-max: 0.5;
+
+    /* Primary action (CV button) */
+    --color-action-bg: var(--color-text-primary);
+    --color-action-bg-hover: var(--color-accent-secondary);
+    --color-action-text: #0f0f0f;
+    --color-action-pill-bg: rgba(0, 0, 0, 0.1);
+    --color-action-pill-text: rgba(0, 0, 0, 0.62);
+
+    /* Scrollbar + selection */
+    --color-scrollbar-thumb-hover: rgba(255, 255, 255, 0.2);
+    --color-selection: rgba(255, 255, 255, 0.2);
+    --color-badge-glow: rgba(255, 255, 255, 0.1);
+
     --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -40,6 +77,72 @@
     --radius-xl: 24px;
 }
 
+/* Light theme. Mirrors the dark palette's structure rather than inverting it:
+   a card stays lighter than the page, the way it is in dark. */
+:root[data-theme='light'] {
+    --color-bg-primary: #f4f4f5;
+    --color-bg-secondary: #f4f4f5;
+    --color-bg-tertiary: #e9e9eb;
+    --color-bg-card: #ffffff;
+    --color-bg-card-hover: #fafafa;
+
+    --color-text-primary: #0f0f10;
+    --color-text-secondary: #52525b;
+    --color-text-tertiary: #71717a;
+    --color-text-muted: #8a8a93;
+
+    --color-accent-primary: #0f0f10;
+    --color-accent-secondary: #27272a;
+    --color-accent-tertiary: #3f3f46;
+
+    --color-border-primary: rgba(0, 0, 0, 0.08);
+    --color-border-secondary: rgba(0, 0, 0, 0.12);
+    --color-border-hover: rgba(0, 0, 0, 0.22);
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.10);
+    --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.12);
+
+    /* A white glow is invisible here. Hover still has to register, so these
+       become slightly deeper shadows instead of being switched off. */
+    --glow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --glow-md: 0 4px 16px rgba(0, 0, 0, 0.10);
+    --glow-lg: 0 8px 28px rgba(0, 0, 0, 0.12);
+
+    --color-edge-highlight: rgba(255, 255, 255, 0.9);
+    --color-edge-highlight-strong: rgba(255, 255, 255, 1);
+    --color-sweep: rgba(0, 0, 0, 0.03);
+    --color-sheen: rgba(0, 0, 0, 0.02);
+    --color-sheen-faint: rgba(0, 0, 0, 0.01);
+    --color-ripple: rgba(0, 0, 0, 0.06);
+    --color-logo-glow: rgba(0, 0, 0, 0.18);
+
+    --color-navbar-bg: rgba(255, 255, 255, 0.85);
+    --color-navlink-hover: rgba(0, 0, 0, 0.05);
+    --color-contact-hover: rgba(0, 0, 0, 0.04);
+    --color-navbar-sweep: rgba(0, 0, 0, 0.06);
+
+    --wash-1: rgba(215, 215, 220, 0.45);
+    --wash-2: rgba(228, 228, 235, 0.4);
+    --wash-3: rgba(238, 238, 242, 0.5);
+    --particle-bright: rgba(0, 0, 0, 0.06);
+    --particle-dim: rgba(0, 0, 0, 0.04);
+    --grain-opacity: 0.22;
+    --particle-opacity-min: 0.18;
+    --particle-opacity-max: 0.3;
+
+    --color-action-bg: #0f0f10;
+    --color-action-bg-hover: #27272a;
+    --color-action-text: #ffffff;
+    --color-action-pill-bg: rgba(255, 255, 255, 0.16);
+    --color-action-pill-text: rgba(255, 255, 255, 0.75);
+
+    --color-scrollbar-thumb-hover: rgba(0, 0, 0, 0.28);
+    --color-selection: rgba(0, 0, 0, 0.12);
+    --color-badge-glow: rgba(0, 0, 0, 0.06);
+}
+
 /* ============================================
    BODY & MAIN BACKGROUND
    ============================================ */
@@ -48,9 +151,9 @@ body {
     padding: 0;
     background: var(--color-bg-primary);
     background-image:
-        radial-gradient(circle at 20% 30%, rgba(40, 40, 40, 0.3) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(60, 60, 60, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 50% 50%, rgba(30, 30, 30, 0.4) 0%, transparent 70%);
+        radial-gradient(circle at 20% 30%, var(--wash-1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, var(--wash-2) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, var(--wash-3) 0%, transparent 70%);
     background-attachment: fixed;
     min-height: 100vh;
     overflow-x: hidden;
@@ -68,7 +171,7 @@ body::before {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: 1;
-    opacity: 0.5;
+    opacity: var(--grain-opacity);
 }
 
 /* Animated background particles */
@@ -80,12 +183,12 @@ body::after {
     width: 100%;
     height: 100%;
     background-image:
-        radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.15), transparent),
-        radial-gradient(2px 2px at 60% 70%, rgba(255, 255, 255, 0.1), transparent),
-        radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.1), transparent),
-        radial-gradient(1px 1px at 80% 10%, rgba(255, 255, 255, 0.15), transparent),
-        radial-gradient(2px 2px at 90% 60%, rgba(255, 255, 255, 0.1), transparent),
-        radial-gradient(1px 1px at 33% 80%, rgba(255, 255, 255, 0.1), transparent);
+        radial-gradient(2px 2px at 20% 30%, var(--particle-bright), transparent),
+        radial-gradient(2px 2px at 60% 70%, var(--particle-dim), transparent),
+        radial-gradient(1px 1px at 50% 50%, var(--particle-dim), transparent),
+        radial-gradient(1px 1px at 80% 10%, var(--particle-bright), transparent),
+        radial-gradient(2px 2px at 90% 60%, var(--particle-dim), transparent),
+        radial-gradient(1px 1px at 33% 80%, var(--particle-dim), transparent);
     background-size: 200% 200%;
     background-position: 0% 0%;
     pointer-events: none;
@@ -96,11 +199,11 @@ body::after {
 @keyframes floatingParticles {
     0%, 100% {
         background-position: 0% 0%;
-        opacity: 0.3;
+        opacity: var(--particle-opacity-min);
     }
     50% {
         background-position: 100% 100%;
-        opacity: 0.5;
+        opacity: var(--particle-opacity-max);
     }
 }
 
@@ -121,7 +224,7 @@ body::after {
     margin: 20px 15px;
     transition: all var(--transition-slow);
     overflow: visible;
-    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 var(--color-edge-highlight);
     border: 1px solid var(--color-border-primary);
 }
 
@@ -132,7 +235,7 @@ body::after {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+    background: linear-gradient(90deg, transparent, var(--color-sweep), transparent);
     transition: left 0.6s ease;
     pointer-events: none;
     z-index: 0;
@@ -146,7 +249,7 @@ body::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent, rgba(255, 255, 255, 0.02));
+    background: linear-gradient(135deg, var(--color-sheen), transparent, var(--color-sheen-faint));
     border-radius: var(--radius-xl);
     opacity: 0;
     transition: opacity 0.4s ease;
@@ -190,7 +293,7 @@ body::after {
     background: var(--color-bg-card);
     backdrop-filter: blur(20px);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 var(--color-edge-highlight);
     padding: 32px;
     width: 100%;
     max-width: 100%;
@@ -215,7 +318,7 @@ body::after {
 .contact-card:hover,
 .info-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--shadow-xl), var(--glow-md), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow-xl), var(--glow-md), inset 0 1px 0 var(--color-edge-highlight-strong);
     border-color: var(--color-border-hover);
     background: var(--color-bg-card-hover);
     will-change: transform;
@@ -291,7 +394,7 @@ body::after {
    MAIN CARD CONTAINER
    ============================================ */
 .main-card {
-    margin-top: 120px;
+    margin-top: calc(var(--navbar-h, 120px) + 24px);
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
@@ -400,7 +503,7 @@ body::after {
 .logo-image:hover {
     opacity: 1;
     transform: scale(1.1) translateY(-2px) rotate(5deg);
-    filter: brightness(1.2) contrast(1.05) drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
+    filter: brightness(1.2) contrast(1.05) drop-shadow(0 0 8px var(--color-logo-glow));
     animation: wiggle 0.5s ease;
 }
 
@@ -420,6 +523,11 @@ body::after {
 .navbar-logo:hover {
     filter: brightness(1.4);
     transform: scale(1.02);
+}
+
+/* Greyscale artwork authored for a dark bar; inverting is exact here. */
+:root[data-theme='light'] .navbar-logo {
+    filter: invert(1) brightness(0.85);
 }
 
 .icon-text {
@@ -452,7 +560,7 @@ body::after {
     width: 200%;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--color-ripple);
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0.4s ease;
 }
@@ -498,8 +606,8 @@ body::after {
     box-sizing: border-box;
     border: 1px solid transparent;
     border-radius: 50px;
-    background: var(--color-text-primary);
-    color: #0f0f0f;
+    background: var(--color-action-bg);
+    color: var(--color-action-text);
     font-size: 0.95em;
     font-weight: 600;
     letter-spacing: -0.01em;
@@ -523,8 +631,8 @@ body::after {
 .cv-button-meta {
     padding: 3px 9px;
     border-radius: 20px;
-    background: rgba(0, 0, 0, 0.1);
-    color: rgba(0, 0, 0, 0.62);
+    background: var(--color-action-pill-bg);
+    color: var(--color-action-pill-text);
     font-size: 0.72em;
     font-weight: 700;
     letter-spacing: 0.08em;
@@ -547,7 +655,7 @@ body::after {
 
 @media (hover: hover) and (pointer: fine) {
     .cv-button:hover {
-        background: var(--color-accent-secondary);
+        background: var(--color-action-bg-hover);
         transform: translateY(-2px);
         box-shadow: var(--shadow-lg), var(--glow-md);
     }
@@ -670,6 +778,18 @@ body::after {
    against a box that can disagree with the visible area, which centred the
    contents on the wrong middle and pushed the close button off screen. */
 .fullscreen-overlay {
+    /* The lightbox is dark in both themes — an image viewer is dark by
+       convention and it makes the screenshots read. Its backdrop and controls
+       are hardcoded, but its text, icons and borders read tokens, so the dark
+       values are pinned here; otherwise the light palette repaints the
+       chevrons and the close icon to 1.01:1 against their own buttons. */
+    --color-text-primary: #ffffff;
+    --color-text-secondary: #b8b8b8;
+    --color-border-secondary: rgba(255, 255, 255, 0.15);
+    --color-border-hover: rgba(255, 255, 255, 0.25);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.7);
+    --glow-lg: 0 0 30px rgba(255, 255, 255, 0.2);
     position: fixed;
     top: 0;
     left: 0;
@@ -857,12 +977,12 @@ body::after {
     width: calc(100% - var(--scroll-lock-gutter, 0px));
     justify-content: space-between;
     align-items: center;
-    background: rgba(10, 10, 10, 0.8);
+    background: var(--color-navbar-bg);
     backdrop-filter: blur(20px) saturate(180%);
     padding: 24px 48px;
     z-index: 1000;
     box-sizing: border-box;
-    box-shadow: var(--shadow-lg), inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-lg), inset 0 -1px 0 var(--color-edge-highlight);
     border-bottom: 1px solid var(--color-border-primary);
     transition: all var(--transition-base);
     animation: slideDown 0.5s ease-out;
@@ -886,7 +1006,7 @@ body::after {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, var(--color-navbar-sweep), transparent);
     animation: shimmer 3s ease-in-out infinite;
 }
 
@@ -954,23 +1074,126 @@ body::after {
 
 .nav-links li:hover {
     color: var(--color-text-primary);
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--color-navlink-hover);
     transform: translateY(-2px);
 }
 
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 6px;
+.navbar-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.line {
-    height: 2px;
-    width: 28px;
-    background-color: var(--color-text-primary);
-    border-radius: 2px;
-    transition: all var(--transition-base);
+.navbar-control {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid var(--color-border-primary);
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    transition: background var(--transition-base), border-color var(--transition-base),
+        color var(--transition-base);
+}
+
+.control-icon {
+    width: 20px;
+    height: 20px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .navbar-control:hover {
+        background: var(--color-navlink-hover);
+        border-color: var(--color-border-hover);
+        color: var(--color-text-primary);
+    }
+}
+
+.moonphase {
+    position: relative;
+    display: inline-flex;
+}
+
+/* Not modal: it does not dim the page or lock scroll. It is a footnote.
+   Anchored to the viewport, not to the button: the moon control sits in the
+   middle of a three-control row, so a popover anchored to it (position:
+   absolute; right: 0) can run off the left edge of a narrow viewport no
+   matter how its width is clamped. Fixed positioning plus a viewport-relative
+   offset keeps it on-screen regardless of where the button lands. */
+.moonphase-popover {
+    position: fixed;
+    top: calc(var(--navbar-h, 120px) + 8px);
+    right: max(12px, 3vw);
+    z-index: 1100;
+    width: min(260px, calc(100vw - 24px));
+    padding: 18px 20px;
+    border-radius: var(--radius-lg);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-secondary);
+    box-shadow: var(--shadow-lg);
+    animation: fadeInScale var(--transition-base);
+}
+
+.moonphase-popover:focus { outline: none; }
+
+.moonphase-popover-icon {
+    width: 26px;
+    height: 26px;
+    color: var(--color-text-primary);
+    margin-bottom: 10px;
+}
+
+.moonphase-name {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-text-primary);
+}
+
+.moonphase-soon {
+    margin: 4px 0 0;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.language-toggle {
+    display: inline-flex;
+    align-items: center;
+    height: 44px;
+    border-radius: 50px;
+    border: 1px solid var(--color-border-primary);
+}
+
+.language-option {
+    min-width: 44px;
+    height: 44px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 50px;
+    background: transparent;
+    color: var(--color-text-tertiary);
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: background var(--transition-base), color var(--transition-base);
+}
+
+.language-option.is-active {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .language-option:not(.is-active):hover {
+        color: var(--color-text-primary);
+    }
 }
 
 /* ============================================
@@ -987,7 +1210,7 @@ body::after {
 }
 
 .contact-item:hover {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--color-contact-hover);
 }
 
 .contact-item p,
@@ -1007,7 +1230,7 @@ body::after {
     background: var(--color-bg-card);
     backdrop-filter: blur(20px);
     border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 var(--color-edge-highlight);
     padding: 40px;
     width: 100%;
     max-width: 600px;
@@ -1099,7 +1322,7 @@ body::after {
     left: 50%;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent);
+    background: radial-gradient(circle, var(--color-badge-glow), transparent);
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0.6s ease;
 }
@@ -1175,19 +1398,33 @@ body::after {
 @media (max-width: 768px) {
     .navbar {
         width: 100%;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
         padding: 16px 20px;
-        gap: 12px;
+        gap: 0 12px;
+        row-gap: 8px;
     }
 
+    /* Shrinks so the logo and the control group always share row one,
+       regardless of how many controls the group holds - the controls must
+       never be squeezed, so the logo yields first. flex-basis: 0 keeps the
+       item's hypothetical size (what the wrap algorithm uses to decide line
+       breaks) at min-width rather than its natural/max size, which is what
+       lets it give up space instead of forcing a wrap. min-width is the
+       floor that keeps it legible. */
     .navbar-logo {
-        max-width: 200px;
-        max-height: 40px;
+        order: 1;
+        flex: 1 1 0;
+        min-width: 64px;
+        max-width: 140px;
+        max-height: 36px;
     }
 
     .main-card {
         padding: 40px 12px;
-        margin-top: 140px;
+        margin-top: calc(var(--navbar-h, 140px) + 16px);
         gap: 20px;
     }
 
@@ -1346,6 +1583,8 @@ body::after {
     }
 
     .nav-links {
+        order: 3;
+        width: 100%;
         gap: 4px;
         flex-wrap: wrap;
         justify-content: center;
@@ -1358,6 +1597,19 @@ body::after {
 
     .navbar li.active {
         padding: 10px 20px;
+    }
+
+    /* Beside the logo, not alone on a third row: that row cost ~55px of a
+       phone screen and read as an orphan. Fixed-size (no grow, no shrink) so
+       the control group's touch targets are never squeezed - the logo gives
+       up space instead. */
+    .navbar-controls {
+        order: 2;
+        width: auto;
+        justify-content: flex-end;
+        margin-top: 0;
+        flex: 0 0 auto;
+        flex-shrink: 0;
     }
 }
 
@@ -1424,7 +1676,7 @@ button:focus-visible {
    SELECTION
    ============================================ */
 ::selection {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--color-selection);
     color: var(--color-text-primary);
 }
 
@@ -1443,5 +1695,5 @@ button:focus-visible {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--color-scrollbar-thumb-hover);
 }
