@@ -6,6 +6,7 @@ import Navbar from './components/navigation/navbar';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import MyProjects from './components/projects/projects';
 import { ThemeProvider } from './theme/ThemeProvider';
+import { I18nProvider } from './i18n/I18nProvider';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -23,17 +24,19 @@ const ScrollToTop = () => {
 function App() {
   return (
     <ThemeProvider>
-      <div className="App">
-        <Router>
-          <ScrollToTop />
-          <Navbar></Navbar>
-          <Routes>
-            <Route path="/" element={<About />} />
-            <Route path="/experience" element={<Experience />} />
-            <Route path="/projects" element={<MyProjects/>} />
-          </Routes>
-        </Router>
-      </div>
+      <I18nProvider>
+        <div className="App">
+          <Router>
+            <ScrollToTop />
+            <Navbar></Navbar>
+            <Routes>
+              <Route path="/" element={<About />} />
+              <Route path="/experience" element={<Experience />} />
+              <Route path="/projects" element={<MyProjects/>} />
+            </Routes>
+          </Router>
+        </div>
+      </I18nProvider>
     </ThemeProvider>
   );
 }
