@@ -3,12 +3,14 @@ import '../../App.css';
 import img from '../../images/logonavbar.png';
 import { useLocation, useNavigate } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
+import { useTranslation } from '../../i18n/I18nProvider';
 
 const Navbar = () => {
     // manejaremos la navegacion mediante navigate.
     const navigate = useNavigate();
     const location = useLocation();
     const navRef = useRef(null);
+    const { t } = useTranslation();
 
     useEffect(() => {
         const node = navRef.current;
@@ -37,9 +39,9 @@ const Navbar = () => {
         <nav className="navbar" ref={navRef}>
             <img src={img} className="navbar-logo" alt="Logo"></img>
             <ul className="nav-links">
-                <li className={location.pathname === "/" ? "active" : ""} onClick={() => navigate('/')}>About Me</li> 
-                <li className={location.pathname === "/projects" ? "active" : ""} onClick={() => navigate('/projects')}>Projects</li> 
-                <li className={location.pathname === "/experience" ? "active" : ""} onClick={() => navigate('/experience')}>Experience</li>  
+                <li className={location.pathname === "/" ? "active" : ""} onClick={() => navigate('/')}>{t('nav.about')}</li>
+                <li className={location.pathname === "/projects" ? "active" : ""} onClick={() => navigate('/projects')}>{t('nav.projects')}</li>
+                <li className={location.pathname === "/experience" ? "active" : ""} onClick={() => navigate('/experience')}>{t('nav.experience')}</li>
             </ul>
             <div className="navbar-controls">
                 <ThemeToggle />
