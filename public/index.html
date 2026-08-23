@@ -67,6 +67,32 @@
 
         document.documentElement.setAttribute('data-theme', theme);
       })();
+
+      // Sets lang before first paint, mirroring detectLanguage() in
+      // src/i18n/i18n.js: a stored 'en'/'es' choice wins; otherwise any
+      // navigator.languages entry starting with "es" (case-insensitive)
+      // selects Spanish; otherwise English. Without this a Spanish visitor's
+      // first paint claims English until React hydrates and corrects it.
+      (function () {
+        var stored = null;
+        try {
+          stored = localStorage.getItem('portfolio-lang');
+        } catch (error) {
+          // Blocked storage: fall through to navigator.languages.
+        }
+
+        var lang = stored === 'en' || stored === 'es' ? stored : null;
+
+        if (lang === null) {
+          var tags = Array.isArray(navigator.languages) ? navigator.languages : [];
+          var wantsSpanish = tags.some(function (tag) {
+            return typeof tag === 'string' && tag.toLowerCase().indexOf('es') === 0;
+          });
+          lang = wantsSpanish ? 'es' : 'en';
+        }
+
+        document.documentElement.setAttribute('lang', lang);
+      })();
     </script>
   </head>
   <body>
