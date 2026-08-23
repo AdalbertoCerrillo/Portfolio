@@ -4,6 +4,12 @@ import { readStoredTheme, resolveTheme, writeStoredTheme } from './theme';
 const ThemeContext = createContext(null);
 const DARK_QUERY = '(prefers-color-scheme: dark)';
 
+// Mirrors --color-bg-primary for each theme in src/App.css. Kept in sync by
+// hand rather than read from the CSS, since the meta tag has to be set from
+// JS regardless and a computed-style read would need the stylesheet to have
+// already loaded.
+const THEME_COLORS = { dark: '#0a0a0a', light: '#f4f4f5' };
+
 const systemPrefersDark = () => {
   try {
     return window.matchMedia(DARK_QUERY).matches;
@@ -34,6 +40,12 @@ export const ThemeProvider = ({ children }) => {
   // JS resolves to a concrete value, so the CSS never needs prefers-color-scheme.
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
+
+    // Keeps the browser chrome (address bar, task switcher card) in step with
+    // the page instead of staying pinned dark. The tag may not exist (e.g. a
+    // stripped-down test DOM), so this is a no-op rather than a throw then.
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', THEME_COLORS[theme]);
   }, [theme]);
 
   const setTheme = useCallback((next) => {

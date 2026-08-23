@@ -8,7 +8,6 @@ import MoonphaseBadge from './MoonphaseBadge';
 import { useTranslation } from '../../i18n/I18nProvider';
 
 const Navbar = () => {
-    // manejaremos la navegacion mediante navigate.
     const navigate = useNavigate();
     const location = useLocation();
     const navRef = useRef(null);
@@ -41,9 +40,36 @@ const Navbar = () => {
         <nav className="navbar" ref={navRef}>
             <img src={img} className="navbar-logo" alt="Logo"></img>
             <ul className="nav-links">
-                <li className={location.pathname === "/" ? "active" : ""} onClick={() => navigate('/')}>{t('nav.about')}</li>
-                <li className={location.pathname === "/projects" ? "active" : ""} onClick={() => navigate('/projects')}>{t('nav.projects')}</li>
-                <li className={location.pathname === "/experience" ? "active" : ""} onClick={() => navigate('/experience')}>{t('nav.experience')}</li>
+                <li className={location.pathname === "/" ? "active" : ""}>
+                    <button
+                        type="button"
+                        className="nav-link-button"
+                        onClick={() => navigate('/')}
+                        aria-current={location.pathname === "/" ? "page" : undefined}
+                    >
+                        {t('nav.about')}
+                    </button>
+                </li>
+                <li className={location.pathname === "/projects" ? "active" : ""}>
+                    <button
+                        type="button"
+                        className="nav-link-button"
+                        onClick={() => navigate('/projects')}
+                        aria-current={location.pathname === "/projects" ? "page" : undefined}
+                    >
+                        {t('nav.projects')}
+                    </button>
+                </li>
+                <li className={location.pathname === "/experience" ? "active" : ""}>
+                    <button
+                        type="button"
+                        className="nav-link-button"
+                        onClick={() => navigate('/experience')}
+                        aria-current={location.pathname === "/experience" ? "page" : undefined}
+                    >
+                        {t('nav.experience')}
+                    </button>
+                </li>
             </ul>
             <div className="navbar-controls">
                 <ThemeToggle />

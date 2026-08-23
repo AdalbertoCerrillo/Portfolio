@@ -1,7 +1,6 @@
 const en = {
   nav: { about: 'About Me', projects: 'Projects', experience: 'Experience' },
   common: {
-    languageLabel: 'Switch to Spanish',
     language: 'Language',
     themeToLight: 'Switch to light theme',
     themeToDark: 'Switch to dark theme',
@@ -23,8 +22,8 @@ const en = {
     badge: 'About Me & Education',
     heading: 'About Me:',
     name: 'Adalberto Cerrillo Vázquez',
-    role: 'Backend Developer',
-    bio: 'Software Engineer with a solid academic background and a proactive attitude for joining work teams aimed at developing innovative and high-quality solutions. I possess outstanding knowledge in backend development, frontend development, software design, and requirements analysis. During my studies, I was an excellent student driven by a commitment to continually improve my knowledge of cutting-edge technologies. I am known for my creative spirit and problem-solving approach, effectively using software to achieve solutions.',
+    role: 'Software Engineer',
+    bio: 'Full-stack software engineer building backend services, cloud infrastructure, and AI systems. At Radii Manufacturing I design the services behind core manufacturing workflows, build cloud workers on AWS and Azure that automate data processing, develop AI agents with LangGraph and LangChain, and maintain the CI/CD pipelines and observability that hold a microservices platform together. I work across Python, Java, JavaScript and C#, with Django, Spring Boot and React, and my interests run to distributed systems, event-driven architecture, LLM systems and RAG, and platform engineering. I trained as a software engineer at the Autonomous University of Zacatecas. What drives me is continuous innovation — using emerging technology to shape where the software industry is going, and combining engineering with design and business thinking to build solutions that last.',
     downloadCv: 'Download CV',
     cvFormat: 'PDF',
     openInBrowser: 'Open in browser',
@@ -55,10 +54,10 @@ const en = {
       body: "Founding Software Engineer at Radii Manufacturing, a startup automating manufacturing through an AI-powered platform and a network of manufacturers, and one of the most promising startups in Latin America. I define the company's technical direction alongside the founding team — the stack, the architecture, and the engineering practices the platform is built on — turning an early-stage product into a system the business can scale on.",
     },
     freelance: {
-      company: 'Freelance Programmer',
-      period: '(Jan 2025 - Jul 2025)',
-      title: 'Freelance Software Developer',
-      body: 'Built software for clients as an independent developer, working inside multidisciplinary teams — designers, domain experts, and other engineers — to turn business problems into systems people actually use. I picked modern, well-supported technology to fit each problem rather than out of habit, and stayed accountable for the result from the first conversation through to delivery.',
+      company: 'Freelance',
+      period: '(Jan 2025 - now)',
+      title: 'Software Engineer',
+      body: 'I build software for clients as an independent engineer, working inside multidisciplinary teams — designers, domain experts, and other engineers — to turn business problems into systems people actually use. I pick modern, well-supported technology to fit each problem rather than out of habit, and stay accountable for the result from the first conversation through to delivery.',
     },
     labsol: {
       company: 'Labsol Network',

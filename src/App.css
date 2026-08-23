@@ -11,11 +11,9 @@
     --color-text-primary: #ffffff;
     --color-text-secondary: #b8b8b8;
     --color-text-tertiary: #808080;
-    --color-text-muted: #666666;
 
     --color-accent-primary: #ffffff;
     --color-accent-secondary: #e0e0e0;
-    --color-accent-tertiary: #c0c0c0;
 
     --color-border-primary: rgba(255, 255, 255, 0.1);
     --color-border-secondary: rgba(255, 255, 255, 0.15);
@@ -67,7 +65,6 @@
     --color-selection: rgba(255, 255, 255, 0.2);
     --color-badge-glow: rgba(255, 255, 255, 0.1);
 
-    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -89,11 +86,9 @@
     --color-text-primary: #0f0f10;
     --color-text-secondary: #52525b;
     --color-text-tertiary: #71717a;
-    --color-text-muted: #8a8a93;
 
     --color-accent-primary: #0f0f10;
     --color-accent-secondary: #27272a;
-    --color-accent-tertiary: #3f3f46;
 
     --color-border-primary: rgba(0, 0, 0, 0.08);
     --color-border-secondary: rgba(0, 0, 0, 0.12);
@@ -1023,10 +1018,13 @@ body::after {
     background: var(--color-bg-card);
     color: var(--color-text-primary);
     border-radius: var(--radius-md);
-    padding: 12px 24px;
     box-shadow: var(--shadow-md), var(--glow-sm);
     border: 1px solid var(--color-border-secondary);
     font-weight: 600;
+}
+
+.navbar li.active .nav-link-button {
+    padding: 12px 24px;
 }
 
 .logo {
@@ -1049,11 +1047,27 @@ body::after {
     font-size: 16px;
     font-weight: 500;
     transition: all var(--transition-base);
-    padding: 12px 20px;
+    padding: 0;
     border-radius: var(--radius-md);
     cursor: pointer;
     letter-spacing: -0.01em;
     position: relative;
+}
+
+/* Fills the whole `<li>` (which now carries no padding of its own) so the
+   click/tap target and the hover/active chrome inherited from the `<li>`
+   stay exactly where they were when the `<li>` itself was clickable. */
+.nav-link-button {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-align: center;
+    border-radius: inherit;
 }
 
 .nav-links li::before {
@@ -1123,7 +1137,11 @@ body::after {
    middle of a three-control row, so a popover anchored to it (position:
    absolute; right: 0) can run off the left edge of a narrow viewport no
    matter how its width is clamped. Fixed positioning plus a viewport-relative
-   offset keeps it on-screen regardless of where the button lands. */
+   offset keeps it on-screen regardless of where the button lands - but only
+   because the markup portals this element to <body>. `.navbar` sets
+   `backdrop-filter`, which establishes a containing block for its fixed
+   descendants, so left in place this element would anchor to the navbar's
+   box instead of the viewport wherever an engine honors that rule. */
 .moonphase-popover {
     position: fixed;
     top: calc(var(--navbar-h, 120px) + 8px);
@@ -1592,10 +1610,13 @@ body::after {
 
     .nav-links li {
         font-size: 14px;
+    }
+
+    .nav-link-button {
         padding: 10px 16px;
     }
 
-    .navbar li.active {
+    .navbar li.active .nav-link-button {
         padding: 10px 20px;
     }
 
