@@ -29,9 +29,17 @@ export function writeStoredLanguage(lang) {
 
 // Returns the key itself on a miss, so a missing string shows up as
 // "experience.radii.body" rather than as blank space nobody notices.
+// Own properties only: traversing the prototype chain would let a key like
+// 'constructor.name' resolve to an unrelated string instead of reporting a miss.
 export function translate(dictionary, key) {
   const value = String(key)
     .split('.')
-    .reduce((node, part) => (node == null ? undefined : node[part]), dictionary);
+    .reduce(
+      (node, part) =>
+        node != null && Object.prototype.hasOwnProperty.call(node, part)
+          ? node[part]
+          : undefined,
+      dictionary
+    );
   return typeof value === 'string' ? value : key;
 }

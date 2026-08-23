@@ -74,4 +74,10 @@ describe('translate', () => {
   test('returns the key when the path resolves to a branch, not a string', () => {
     expect(translate(dictionary, 'empty')).toBe('empty');
   });
+
+  test('does not resolve keys through the prototype chain', () => {
+    expect(translate(dictionary, 'constructor.name')).toBe('constructor.name');
+    expect(translate(dictionary, 'toString.name')).toBe('toString.name');
+    expect(translate(dictionary, 'nav.constructor.name')).toBe('nav.constructor.name');
+  });
 });
