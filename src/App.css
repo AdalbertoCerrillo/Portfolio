@@ -1023,10 +1023,13 @@ body::after {
     background: var(--color-bg-card);
     color: var(--color-text-primary);
     border-radius: var(--radius-md);
-    padding: 12px 24px;
     box-shadow: var(--shadow-md), var(--glow-sm);
     border: 1px solid var(--color-border-secondary);
     font-weight: 600;
+}
+
+.navbar li.active .nav-link-button {
+    padding: 12px 24px;
 }
 
 .logo {
@@ -1049,11 +1052,27 @@ body::after {
     font-size: 16px;
     font-weight: 500;
     transition: all var(--transition-base);
-    padding: 12px 20px;
+    padding: 0;
     border-radius: var(--radius-md);
     cursor: pointer;
     letter-spacing: -0.01em;
     position: relative;
+}
+
+/* Fills the whole `<li>` (which now carries no padding of its own) so the
+   click/tap target and the hover/active chrome inherited from the `<li>`
+   stay exactly where they were when the `<li>` itself was clickable. */
+.nav-link-button {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-align: center;
+    border-radius: inherit;
 }
 
 .nav-links li::before {
@@ -1592,10 +1611,13 @@ body::after {
 
     .nav-links li {
         font-size: 14px;
+    }
+
+    .nav-link-button {
         padding: 10px 16px;
     }
 
-    .navbar li.active {
+    .navbar li.active .nav-link-button {
         padding: 10px 20px;
     }
 

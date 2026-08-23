@@ -61,7 +61,7 @@ const About = () => {
                 <a href={`mailto:${email}`} className="email-link"><img src={mailLogo} alt="Mail" className="logo-image" /></a>
                 <a href={linkedinLink} target="_blank" rel="noopener noreferrer"><img src={linkedinLogo} alt="LinkedIn" className="logo-image" /></a>
                 <a href={GitHubLink} target="_blank" rel="noopener noreferrer"><img src={GitHubLogo} alt="GitHub" className="logo-image" /></a>
-                <a href={YoutubeLink} target="_blank" rel="noopener noreferrer"><img src={YoutubeLogo} alt="GitHub" className="logo-image" /></a>
+                <a href={YoutubeLink} target="_blank" rel="noopener noreferrer"><img src={YoutubeLogo} alt="YouTube" className="logo-image" /></a>
                 </div>
                 <h2>{`${t('about.name')} - ${t('about.role')}`}</h2>
                 <p>{t('about.bio')}</p>

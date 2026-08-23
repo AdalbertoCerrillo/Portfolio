@@ -21,11 +21,16 @@ const MoonphaseBadge = () => {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
   const popoverRef = useRef(null);
+  const buttonRef = useRef(null);
+  // Only opening the popover should hand focus back to the button on close.
+  // Without this guard the button would steal focus on first mount too.
+  const openedRef = useRef(false);
 
   const close = useCallback(() => setOpen(false), []);
 
   useEffect(() => {
     if (!open) return undefined;
+    openedRef.current = true;
     const onKeyDown = (event) => event.key === 'Escape' && close();
     const onPointerDown = (event) => {
       if (!wrapperRef.current?.contains(event.target)) close();
@@ -41,10 +46,19 @@ const MoonphaseBadge = () => {
     };
   }, [open, close]);
 
+  // Runs after the popover has unmounted (separate from the effect above, so
+  // it fires on close rather than on every open). Skipped on first mount -
+  // openedRef only flips true once the popover has actually been opened once.
+  useEffect(() => {
+    if (open || !openedRef.current) return;
+    buttonRef.current?.focus();
+  }, [open]);
+
   return (
     <div className="moonphase" ref={wrapperRef}>
       <button
         type="button"
+        ref={buttonRef}
         className="navbar-control"
         onClick={() => setOpen((current) => !current)}
         aria-expanded={open}
