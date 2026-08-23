@@ -1117,14 +1117,13 @@ body::after {
     display: inline-flex;
     align-items: center;
     height: 44px;
-    padding: 4px;
     border-radius: 50px;
     border: 1px solid var(--color-border-primary);
 }
 
 .language-option {
-    min-width: 40px;
-    height: 36px;
+    min-width: 44px;
+    height: 44px;
     padding: 0 10px;
     border: none;
     border-radius: 50px;

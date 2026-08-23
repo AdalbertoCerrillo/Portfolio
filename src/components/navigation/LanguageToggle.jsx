@@ -6,7 +6,7 @@ const LanguageToggle = () => {
   const { lang, setLang, t } = useTranslation();
 
   return (
-    <div className="language-toggle" role="group" aria-label={t('common.languageLabel')}>
+    <div className="language-toggle" role="group" aria-label={t('common.language')}>
       {['es', 'en'].map((code) => (
         <button
           key={code}

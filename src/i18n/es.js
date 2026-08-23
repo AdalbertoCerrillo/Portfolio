@@ -2,6 +2,7 @@ const es = {
   nav: { about: 'Sobre Mí', projects: 'Proyectos', experience: 'Experiencia' },
   common: {
     languageLabel: 'Cambiar a inglés',
+    language: 'Idioma',
     themeToLight: 'Cambiar a tema claro',
     themeToDark: 'Cambiar a tema oscuro',
     openRepo: 'repositorio de código',
@@ -53,7 +54,7 @@ const es = {
     },
     freelance: {
       company: 'Programador Freelance',
-      period: '(Jan 2025 - Jul 2025)',
+      period: '(Ene 2025 - Jul 2025)',
       title: 'Freelance Software Developer',
       body: 'Desarrollé software para clientes como desarrollador independiente, trabajando dentro de equipos multidisciplinarios — diseñadores, expertos del dominio y otros ingenieros — para convertir problemas de negocio en sistemas que la gente realmente usa. Elegí tecnología de vanguardia y bien respaldada según el problema, no por costumbre, y me hice responsable del resultado desde la primera conversación hasta la entrega.',
     },
