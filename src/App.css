@@ -1315,14 +1315,21 @@ body::after {
 @media (max-width: 768px) {
     .navbar {
         width: 100%;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
         padding: 16px 20px;
-        gap: 12px;
+        gap: 0 12px;
+        row-gap: 8px;
     }
 
     .navbar-logo {
-        max-width: 200px;
-        max-height: 40px;
+        order: 1;
+        max-width: 140px;
+        max-height: 36px;
+        flex: 0 1 auto;
+        min-width: 0;
     }
 
     .main-card {
@@ -1486,6 +1493,8 @@ body::after {
     }
 
     .nav-links {
+        order: 3;
+        width: 100%;
         gap: 4px;
         flex-wrap: wrap;
         justify-content: center;
@@ -1500,10 +1509,14 @@ body::after {
         padding: 10px 20px;
     }
 
+    /* Beside the logo, not alone on a third row: that row cost ~55px of a
+       phone screen and read as an orphan. */
     .navbar-controls {
-        width: 100%;
-        justify-content: center;
-        margin-top: 4px;
+        order: 2;
+        width: auto;
+        justify-content: flex-end;
+        margin-top: 0;
+        flex: 0 0 auto;
     }
 }
 
