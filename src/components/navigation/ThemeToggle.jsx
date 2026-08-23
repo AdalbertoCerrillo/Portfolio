@@ -1,4 +1,5 @@
 import { useTheme } from '../../theme/ThemeProvider';
+import { useTranslation } from '../../i18n/I18nProvider';
 
 // A half-filled circle, not a sun/moon pair: the Moonphase mark next to it is
 // a moon, and two moons in one navbar makes neither of them legible.
@@ -11,7 +12,8 @@ const ContrastIcon = () => (
 
 const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
-  const label = theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+  const { t } = useTranslation();
+  const label = theme === 'dark' ? t('common.themeToLight') : t('common.themeToDark');
 
   return (
     <button type="button" className="navbar-control" onClick={toggleTheme} aria-label={label} title={label}>
