@@ -708,6 +708,8 @@ import sigazeboIcon from '../../images/tech/gazebo.svg';
 import simoveitIcon from '../../images/tech/moveit.png';
 import siplotjugglerIcon from '../../images/tech/plotjuggler.png';
 import simujocoIcon from '../../images/tech/mujoco.png';
+import siomniverseIcon from '../../images/tech/omniverse.png';
+import siisaaclabIcon from '../../images/tech/isaaclab.jpg';
 import siwebotsIcon from '../../images/tech/webots.png';
 import sigymnasiumIcon from '../../images/tech/gymnasium.png';
 import sidrakeIcon from '../../images/tech/drake.svg';
@@ -3072,6 +3074,10 @@ const TECH_GROUPS = [
       { name: 'MoveIt', icon: simoveitIcon, flat: true },
       { name: 'PlotJuggler', icon: siplotjugglerIcon, flat: true },
       { name: 'MuJoCo', icon: simujocoIcon, flat: true },
+      // NVIDIA's simulation stack, beside the other simulators. Both marks are
+      // pictures on an opaque tile, from their GitHub orgs, so they only go gray.
+      { name: 'NVIDIA Omniverse', icon: siomniverseIcon, gray: true },
+      { name: 'Isaac Lab', icon: siisaaclabIcon, gray: true },
       { name: 'Webots', icon: siwebotsIcon, flat: true },
       { name: 'Gymnasium', icon: sigymnasiumIcon, flat: true },
       { name: 'Drake', icon: sidrakeIcon, mono: true },

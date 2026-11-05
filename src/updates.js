@@ -17,6 +17,11 @@
 
 const UPDATES = [
   {
+    date: '2026-11-05',
+    es: 'NVIDIA Omniverse e Isaac Lab en el muro, junto a los otros simuladores',
+    en: 'NVIDIA Omniverse and Isaac Lab on the wall, beside the other simulators',
+  },
+  {
     date: '2026-10-23',
     es: 'Agentify-Workflow entra al catálogo: una sesión por ticket para trabajar con agentes en varios repos, con cinco capturas',
     en: 'Agentify-Workflow joins the catalogue: one session per ticket for working with agents across repos, with five screenshots',
