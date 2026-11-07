@@ -45,6 +45,13 @@ const en = {
     icp: 'Internet Computer Certification (2023)',
     somece: 'INTERNATIONAL CONGRESS SOMECE 2024',
   },
+  events: {
+    heading: 'Events:',
+    nvidiaAiDay: {
+      title: 'NVIDIA AI Day Mexico 2026',
+      location: 'Mexico City',
+    },
+  },
   experience: {
     badge: '2+ Years of Experience',
     radii: {

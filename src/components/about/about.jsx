@@ -151,6 +151,14 @@ const About = () => {
                   />
                 </div>
             </div>
+
+            <div className="info-card">
+                <h3>{t('events.heading')}</h3>
+                <div className='info-card-text'>
+                <h2>{t('events.nvidiaAiDay.title')}</h2>
+                <p>{t('events.nvidiaAiDay.location')}</p>
+                </div>
+            </div>
             {/* Portalled for the same reason as the projects lightbox: `.main-card`
                 is a stacking context, so a nested overlay renders under the navbar. */}
             {isFullScreen && createPortal(
