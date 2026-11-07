@@ -366,6 +366,13 @@ const cvEn = {
     mapCity: 'city',
     mapCities: 'cities',
     events: {
+      nvidiaAiDay: {
+        name: 'NVIDIA AI Day Mexico 2026',
+        issuer: 'Mexico City',
+        year: 'November 2026',
+        body: "NVIDIA's AI Day in Mexico City: a day of talks on the state of artificial intelligence in Mexico and Latin America, with panels on agentic AI, LLM development and AI investment in the region, and simulation and robotics cases built on Omniverse and Isaac Sim.",
+        link: 'View the event',
+      },
       rbr: {
         name: 'Release Before Ready',
         issuer: 'Querétaro',

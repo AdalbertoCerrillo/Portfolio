@@ -383,6 +383,13 @@ const cvEs = {
     mapCity: 'ciudad',
     mapCities: 'ciudades',
     events: {
+      nvidiaAiDay: {
+        name: 'NVIDIA AI Day México 2026',
+        issuer: 'Ciudad de México',
+        year: 'Noviembre 2026',
+        body: 'El AI Day de NVIDIA en la Ciudad de México: un día de conferencias sobre el estado de la inteligencia artificial en México y Latinoamérica, con paneles sobre IA basada en agentes, desarrollo de LLM e inversión en IA en la región, y casos de simulación y robótica con Omniverse e Isaac Sim.',
+        link: 'Ver el evento',
+      },
       rbr: {
         name: 'Release Before Ready',
         issuer: 'Querétaro',

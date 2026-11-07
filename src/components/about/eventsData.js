@@ -1,6 +1,7 @@
 import rbrMark from '../../images/releasebeforeready.svg';
 import innovafestMark from '../../images/innovafest.svg';
 import talentlandMark from '../../images/talentland.svg';
+import nvidiaMark from '../../images/nvidia.svg';
 
 /*
  * The events, as data. They were a list in about.jsx with three wordmarks; the
@@ -21,6 +22,17 @@ import talentlandMark from '../../images/talentland.svg';
  * turned into.
  */
 export const EVENT_ITEMS = [
+  {
+    key: 'nvidiaAiDay',
+    mark: nvidiaMark,
+    url: 'https://www.nvidia.com/es-la/ai-days/',
+    city: 'Ciudad de México',
+    lon: -99.13,
+    lat: 19.43,
+    year: 2026,
+    when: 2026 + 11 / 12,
+    tone: '#76b900',
+  },
   {
     key: 'rbr',
     mark: rbrMark,

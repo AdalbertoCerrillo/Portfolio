@@ -17,6 +17,11 @@
 
 const UPDATES = [
   {
+    date: '2026-11-07',
+    es: 'NVIDIA AI Day México 2026 entra a los eventos, en la Ciudad de México',
+    en: 'NVIDIA AI Day Mexico 2026 joins the events, in Mexico City',
+  },
+  {
     date: '2026-11-05',
     es: 'NVIDIA Omniverse e Isaac Lab en el muro, junto a los otros simuladores',
     en: 'NVIDIA Omniverse and Isaac Lab on the wall, beside the other simulators',
